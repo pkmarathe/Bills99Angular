@@ -1,0 +1,99 @@
+<card cardTitle="Manage Subscription Plan" isCollapse="true">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-1">Subscription Plan</div>
+      <div class="col-md-3"><input type="text" class="form-control"
+          [(ngModel)]="subscriptionPlanAddDc.SubscriptionPlan"></div>
+      <div class="col-md-1">Subscription Plan Desc</div>
+      <div class="col-md-3"><input type="text" class="form-control"
+          [(ngModel)]="subscriptionPlanAddDc.SubscriptionPlanDesc"></div>
+      <div class="col-md-1">Payment Type</div>
+      <div class="col-md-3">
+        <select name="paymenttype" id="paymenttype" class="form-control"
+          [(ngModel)]="subscriptionPlanAddDc.PaymentType">
+          <option value="No charge">No charge</option>
+          <option value="One-time charge">One-time charge</option>
+          <option value="Recurring">Recurring</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-1">Amount</div>
+      <div class="col-md-3"><input type="number" class="form-control" [(ngModel)]="subscriptionPlanAddDc.Amount"></div>
+      <div class="col-md-1">Color</div>
+      <div class="col-md-3"><input type="text" class="form-control" [(ngModel)]="subscriptionPlanAddDc.Color"></div>
+      <div class="col-md-1">Active</div>
+      <div class="col-md-3">
+        <select name="isactive" id="isactive" class="form-control" [(ngModel)]="subscriptionPlanAddDc.IsActive">
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">
+        <button *ngIf="subscriptionPlanAddDc.SubscriptionPlanId == 0" class="btn btn-lg btn-success"
+          (click)="onAddUpdateSubscriptionPlan()">Add</button>
+        <button *ngIf="subscriptionPlanAddDc.SubscriptionPlanId > 0" class="btn btn-lg btn-success"
+          (click)="onAddUpdateSubscriptionPlan()">Update</button><button class="btn btn-lg btn-warning"
+          (click)="onCancel()">Cancel</button></div>
+    </div>
+  </div>
+  <div class="col-md-12 btn btn-danger" *ngIf="error">
+    <span class="error">{{error}}
+    </span>
+  </div>
+  <div class="col-md-12 btn btn-success" *ngIf="success">
+    <span class="success">{{success}}
+    </span>
+  </div>
+</card>
+
+<div class="row">
+  <div class="col-md-12">
+    <card cardTitle="Subscription Plan List : {{subscriptionPlanDc.length}}">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Subscription Plan</th>
+            <th>Subscription Plan Desc</th>
+            <th>Payment Type</th>
+            <th>Amount</th>
+            <th>Color</th>
+            <th>Active</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of subscriptionPlanDc;let index = index">
+            <!-- | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber} -->
+            <td>{{index+1}}</td>
+            <td>{{item.SubscriptionPlan}}</td>
+            <td>{{item.SubscriptionPlanDesc}}</td>
+            <td>{{item.PaymentType}}</td>
+            <td>{{item.Amount}}</td>
+            <td>{{item.Color}}</td>
+            <td><input class="checkbox checkbox-success" type="checkbox" id="color-checkbox3"
+                *ngIf="item.IsActive == true" disabled=true checked>
+              <input class="checkbox checkbox-success" type="checkbox" id="color-checkbox3"
+                *ngIf="item.IsActive == false" disabled=true unchecked>
+              <label class="check-label" for="color-checkbox3"></label></td>
+            <td>
+              <a (click)="onEditSubscriptionPlan(item.SubscriptionPlanId)" class="btn btn-success">
+                <i class="fa fa-pencil"></i>
+              </a>
+              <a (click)="onDeleteSubscriptionPlan(item.SubscriptionPlanId)" class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </card>
+  </div>
+</div>

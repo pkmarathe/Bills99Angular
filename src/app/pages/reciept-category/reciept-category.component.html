@@ -1,0 +1,68 @@
+<card cardTitle="Manage Category" isCollapse="true">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-1">Category</div>
+      <div class="col-md-3"><input type="text" class="form-control" [(ngModel)]="categoryMasterAddDc.CategoryName">
+      </div>
+
+      <div class="col-md-1">Active</div>
+      <div class="col-md-3">
+        <select name="isactive" id="isactive" class="form-control" [(ngModel)]="categoryMasterAddDc.IsActive">
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button *ngIf="categoryMasterAddDc.CategoryId == 0" class="btn btn-lg btn-success"
+          (click)="onAddUpdateCategory()">Add</button>
+        <button *ngIf="categoryMasterAddDc.CategoryId > 0" class="btn btn-lg btn-success"
+          (click)="onAddUpdateCategory()">Update</button><button class="btn btn-lg btn-warning"
+          (click)="onCancel()">Cancel</button></div>
+    </div>
+  </div>
+  <div class="col-md-12 btn btn-danger" *ngIf="error">
+    <span class="error">{{error}}
+    </span>
+  </div>
+  <div class="col-md-12 btn btn-success" *ngIf="success">
+    <span class="success">{{success}}
+    </span>
+  </div>
+</card>
+
+<card cardTitle="Category List : {{categoryMasterDc.length}}" isCollapse="true">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Category</th>
+        <th>Active</th>
+        <th>Created Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of categoryMasterDc;let index = index">
+        <td>{{index+1}}</td>
+        <td>{{item.CategoryName}}</td>
+        <td><input class="checkbox checkbox-success" type="checkbox" id="color-checkbox3" *ngIf="item.IsActive == true"
+            disabled=true checked>
+          <input class="checkbox checkbox-success" type="checkbox" id="color-checkbox3" *ngIf="item.IsActive == false"
+            disabled=true unchecked>
+          <label class="check-label" for="color-checkbox3"></label></td>
+        <td>{{item.CreatedDate | date:'dd MMM yyyy'}}</td>
+        <td>
+          <a (click)="onEditCategory(item.CategoryId)" class="btn btn-success">
+            <i class="fa fa-pencil"></i>
+          </a>
+          <a (click)="onDeleteCategory(item.CategoryId)" class="btn btn-danger">
+            <i class="fa fa-trash"></i>
+          </a>
+          <!-- <a (click)="onViewReciept(item.CategoryId)" class="btn btn-warning">
+            <i class="fa fa-file-text-o icon"></i> 
+          </a>-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</card>

@@ -1,0 +1,970 @@
+ 
+.erbos-font{
+	font-family: "Erbos Draco 1st Open NBP" ;
+	font-size:16px; 
+	line-height: 32px;
+}
+.djb-font{
+	font-family: "DJB Friday Night Lights";
+	font-size:16px; 
+	line-height: 32px;
+}
+.aovel-font{
+	font-family: 'Aovel Sans';
+	font-size:16px;
+	line-height: 32px;
+	color:#686868;
+	letter-spacing: 0.1em;
+}
+.udin-font{
+	font-family: 'uDIN1451MittelschriftRegular';
+	font-size:18px;
+	line-height: 32px;
+	color:#686868;
+}
+.bungee-font{
+	font-family: 'Bungee';
+	font-size:18px;
+	line-height: 32px;
+	color:#686868;
+}
+.bungee-font2{
+	font-family: "Bungee Hairline";
+    font-size: 20px;
+    line-height: 32px;
+    color: #000;
+	font-weight: 900;
+	letter-spacing: -3px;    word-spacing: 7px;
+}
+.ptmono-font{
+	font-family: 'PT Mono', monospace;
+    font-size: 20px;
+    line-height: 32px;
+    color: #686868;
+	
+}
+.arial-font{
+	font-family: "arial" ;
+	font-size:10px;
+	line-height: 16px;
+}
+.ibm-font{
+	font-family: 'IBM Plex Mono', monospace;
+	font-size:16px;
+	line-height: 20px;
+}
+.grptesque-font{
+	font-family: 'Darker Grotesque', sans-serif;
+	font-size:16px;
+	line-height: 32px;
+}
+.roboto-font{
+	font-family: 'Roboto Mono', monospace;
+	font-size:16px;
+	line-height: 25px;
+}
+.newsgoth-font{
+	font-family: "NewsGoth Cn BT";
+	font-size:18px; 
+}
+.newsgoth36line-font{
+	font-family: "NewsGoth Cn BT";
+	font-size:18px;
+	line-height: 35px;
+}
+.oxygen-font{
+	font-family: 'Oxygen', sans-serif;
+	font-size:16px;
+	line-height: 20px;
+}
+.ubuntu-font{
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size:16px;
+	line-height: 32px;
+}
+.carrois-font{
+	font-family: 'Carrois Gothic', sans-serif;
+	font-size:18px;
+	line-height: 25px;
+}
+.chivo-font{
+	font-family: 'Chivo', sans-serif!important;
+	font-size:16px;
+	line-height: 20px;
+}
+.ptsans-font{
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size:18px;
+	line-height: 20px;
+}
+.merriweather-font{
+	font-family: 'Merriweather', serif;
+	font-size:16px;
+	line-height: 32px;
+}
+.publicsans-font{
+	font-family: 'Public Sans', sans-serif;
+	font-size:12px;
+	line-height: 20px;
+}
+.mada-font{
+	font-family: 'Mada', sans-serif;
+	font-size:14px;
+	line-height: 18px;
+}
+.dejavu-font{
+	font-family: Dejavu Sans; 
+	font-size:16px;
+	line-height: 32px;
+}
+.public-font{
+	font-family: 'Public Sans', sans-serif;
+	font-size:16px;
+	line-height: 32px;
+}
+.bitter-font{
+	font-family: 'Bitter', serif;
+	font-size:18px;
+	line-height: 32px;
+}
+.prompt-font{
+	font-family: 'Prompt', sans-serif;
+	font-size:16px;
+	line-height: 32px;
+	
+}
+.zilla-font{
+	font-family: 'Zilla Slab', serif;
+	font-size:16px;
+	line-height: 32px;
+}
+.fredoka-font{
+	font-family: 'Fredoka One', cursive;
+	font-size:14px;
+	line-height: 20px;
+	font-weight:normal;
+}
+.sourcecode-font{
+	font-family: 'Source Code Pro', monospace;
+	font-size:13px;
+	line-height: 20px;
+	letter-spacing: -1px;
+	font-weight: 800;
+}
+.iceberg-font{
+	font-family: 'Iceberg', cursive;
+	font: size 16px;
+	line-height: 20px;
+}
+.robotomono-font{
+	font-family: 'Roboto Mono', monospace;
+	font-size:18px;
+	line-height: 32px;
+}
+.arial-font{
+	font-family: Arial, Verdana, sans-serif; 
+} 
+.opensans-font{
+	font-family: 'Open Sans', sans-serif;
+	font-size:14px;
+	line-height: 32px;
+}
+.cabin-font{
+	font-family: 'Cabin', sans-serif;
+	font-size:14px;
+	line-height: 20px;
+}
+.ptmono-font{
+	font-family: 'PT Mono', monospace;
+	font-size:16px;
+	line-height: 26px;
+}
+.sawarabi-font{
+	font-family: 'Sawarabi Gothic', sans-serif;
+	font-size:16px;
+	line-height: 26px;
+}
+.chivo-font{
+	font-family: 'Chivo', sans-serif;
+	font-size:16px;
+	line-height: 32px;
+}
+.signika-font{
+	font-family: 'Signika', sans-serif; 
+	line-height: 25px;
+}
+.-font{
+	font-family: 'Signika', sans-serif;
+	font-size:16px;
+	line-height: 32px;
+}
+
+.djb-font table, .erbos-font table, .aovel-font table, .udin-font table, .ibm-font table{
+	max-width: 300px;
+	margin: 0px auto;
+}
+.company-logo {
+	max-height: 100px;
+	width: auto;
+	max-width: 200px;
+}
+
+.divider {
+	width: 100%;
+	margin: 20px auto;
+	overflow: hidden;
+	text-align: center;
+	line-height: 1.2em;
+}
+
+img {
+	max-width: 100%;
+}
+
+.btn-purple {
+	background: #EA0B8C;
+	color: #ffffff;
+}
+
+.btn-black {
+	background: #000000;
+	color: #ffffff;
+}
+
+.text-gray {
+	color: #bbb;
+}
+
+.ver-gray-line {
+	background: url(assets/images/gray-line.jpg) center 21px no-repeat;
+}
+
+.ver-gray-line32 {
+	background: url(assets/images/gray-line.jpg) center 32px no-repeat;
+}
+
+.ver-black-line {
+	background: url(assets/images/black-line.jpg) center 10px no-repeat;
+	vertical-align: top;
+}
+.vertical-top{
+	vertical-align: top;
+}
+.uber-taxi-bg {
+	background: url(assets/images/uber-taxi-bg.jpg) left top no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+	float: left;
+}
+.uber-taxi-bg td{
+	vertical-align: top;
+}
+.alert-default {
+	background: #F8F8FA;
+}
+.black-bg{
+	background: #000;
+	padding:20px;
+	color:#fff;
+}
+.blue-bg{
+	background: #416EF1;
+	padding:20px;
+	color:#fff;
+}
+.text-blue{
+	color:#416EF1;
+}
+.blue-bg a, .black-bg a{
+	color:#fff;
+}
+.btn-black {
+	background: black;
+}
+.uber-black-bg{
+	width:100%;
+	float: left;
+	background: url(assets/images/uber-black-bg.jpg) left top repeat;
+	padding:5%;
+}
+.uber-white-bg{
+	background: #fff;
+	width:100%;
+	float: left;
+}
+.divider:before,
+.divider:after {
+	content: "";
+	vertical-align: middle;
+	display: inline-block;
+	width: 50%;
+	border-bottom: 2px dashed #aaa;
+	margin: 0 2% 0 -55%;
+}
+
+.divider:after {
+	margin: 0 -55% 0 2%;
+}
+
+h5:nth-child(2) {
+	font-size: 1.6em;
+}
+
+.divider span {
+	display: inline-block;
+	vertical-align: middle;
+}
+ 
+.dash-divider {
+	width: 100%;
+	float: left;
+	border-bottom: 2px dashed #aaa;
+	height: 2px;
+}
+
+.red-dash-divider {
+	width: 100%;
+	float: left;
+	border-bottom: 2px dashed #ed1c24;
+	height: 2px;
+}
+
+.red-divider {
+	width: 100%;
+	float: left;
+	border-bottom: 1px solid #ed1c24;
+	height: 1px;	
+}
+
+.line-divider {
+	width: 100%;
+	/*float: left;*/
+	clear:both;
+	border-bottom: 1px solid #aaa;
+	height: 2px;
+}
+
+.no-padding {
+	padding: 0px;
+}
+
+.alert-warning1 {
+	background: #E71B24;
+	color: #fff;
+}
+
+.panel-warning {
+	border: 1px solid #ed1c24;
+	width: 100%;
+	float: left;
+}
+.panel-warning-heading {
+	background: #ed1c24;
+	color: #fff;
+	width: 100%;
+	float: left;
+	padding: 12px;
+}
+.panel-warning-body, .panel-default-body {
+	padding: 15px;
+	width: 100%;
+	float: left;
+}
+.panel-default {
+	border: 1px solid #ccc;
+	width: 100%;
+	float: left;
+}
+.panel-default-heading {
+	background: #FAFAFA;
+	border-bottom:1px solid #ccc;
+	width: 100%;
+	float: left;
+	padding:12px;
+}
+.panel-default-footer{
+	border-top:1px solid #bbb;
+	padding: 12px;
+	width: 100%;
+    float: left;
+}
+.text-danger {
+	color: #E71B24!important;
+}
+
+.form-group {
+	margin-bottom: 15px;
+	width: 100%;
+	float: left;
+}
+.uppercase{
+	text-transform: uppercase;
+}
+.jio-address {
+	padding: 3%;
+}
+
+.jio-circl-bg {
+	background: url("assets/images/jio-circle-bg.png") center center no-repeat;
+	background-size: 100%;
+	max-width: 250px;
+	height: 135px;
+	text-align: center;
+	width: 100%;
+	margin: 0px auto;
+	vertical-align: middle;
+	display: flex;
+	align-items: center;
+	flex-flow: column;
+	justify-content: center;
+}
+
+.no-margin {
+	margin: 0px!important;
+}
+
+.border-right {
+	border-right: 1px solid #000;
+}
+
+.border-bottom {
+	border-bottom: 2px solid #000;
+}
+.dash-border-right {
+	border-right: 1px dashed #000;
+}
+
+.dash-border-bottom {
+	border-bottom: 1px dashed #000;
+}
+.dash-border-top {
+	border-top: 1px dashed #000;
+}
+.dash-border-left {
+	border-left: 1px dashed #000;
+}
+.p-15{
+	padding:15px!important;
+}
+
+.p-5 {
+	padding: 5px;
+}
+
+.p-10 {
+	padding: 10px;
+}
+
+.p-15 {
+	padding: 15px;
+}
+
+.p-20 {
+	padding: 20px;
+}
+
+.p-25 {
+	padding: 25px;
+}
+
+.p-30 {
+	padding: 30px;
+}
+
+.p-35 {
+	padding: 35px;
+}
+.pl-15{
+	padding-left:15px!important;
+}
+
+.pl-5 {
+	padding-left: 5px;
+}
+
+.pl-10 {
+	padding-left: 10px;
+}
+
+.pl-15 {
+	padding-left: 15px;
+}
+
+.pl-20 {
+	padding-left: 20px;
+}
+
+.pl-25 {
+	padding-left: 25px;
+}
+
+.pl-30 {
+	padding-left: 30px;
+}
+
+.pl-35 {
+	padding-left: 35px;
+}
+.pl-15{
+	padding-left:15px!important;
+}
+
+.pr-5 {
+	padding-right: 5px;
+}
+
+.pr-10 {
+	padding-right: 10px;
+}
+
+.pr-15 {
+	padding-right: 15px;
+}
+
+.pr-20 {
+	padding-right: 20px;
+}
+
+.pr-25 {
+	padding-right: 25px;
+}
+
+.pr-30 {
+	padding-right: 30px;
+}
+
+.pr-35 {
+	padding-right: 35px;
+}
+.pt-5 {
+	padding-top: 5px;
+}
+
+.pt-10 {
+	padding-top: 10px;
+}
+
+.pt-15 {
+	padding-top: 15px;
+}
+
+.pt-20 {
+	padding-top: 20px;
+}
+
+.pt-25 {
+	padding-top: 25px;
+}
+
+.pt-30 {
+	padding-top: 30px;
+}
+
+.pt-35 {
+	padding-top: 35px;
+}
+
+.pb-5 {
+	padding-bottom: 5px;
+}
+
+.pb-10 {
+	padding-bottom: 10px;
+}
+
+.pb-15 {
+	padding-bottom: 15px;
+}
+
+.pb-20 {
+	padding-bottom: 20px;
+}
+
+.pb-25 {
+	padding-bottom: 25px;
+}
+
+.pb-30 {
+	padding-bottom: 30px;
+}
+.mt-0 {
+	margin-top: 0px;
+}
+.mt-5 {
+	margin-top: 5px;
+}
+
+.mt-10 {
+	margin-top: 10px;
+}
+
+.mt-15 {
+	margin-top: 15px;
+}
+
+.mt-20 {
+	margin-top: 20px;
+}
+
+.mt-25 {
+	margin-top: 25px;
+}
+
+.mt-30 {
+	margin-top: 30px;
+}
+
+.mt-35 {
+	margin-top: 35px;
+}
+
+.mb-5 {
+	margin-bottom: 5px;
+}
+
+.mb-0 {
+	margin-bottom: 0px;
+}
+.mb-10 {
+	margin-bottom: 10px;
+}
+
+.mb-15 {
+	margin-bottom: 15px;
+}
+
+.mb-20 {
+	margin-bottom: 20px;
+}
+
+.mb-25 {
+	margin-bottom: 25px;
+}
+
+.mb-30 {
+	margin-bottom: 30px;
+}
+
+.ml-5 {
+	margin-left: 5px;
+}
+
+.ml-10 {
+	margin-left: 10px;
+}
+
+.ml-15 {
+	margin-left: 15px;
+}
+
+.ml-20 {
+	margin-left: 20px;
+}
+
+.ml-25 {
+	margin-left: 25px;
+}
+
+.ml-30 {
+	margin-left: 30px;
+}
+
+.mr-5 {
+	margin-right: 5px;
+}
+
+.mr-10 {
+	margin-right: 10px;
+}
+
+.mr-15 {
+	margin-right: 15px;
+}
+
+.mr-20 {
+	margin-right: 20px;
+}
+
+.mr-25 {
+	margin-right: 25px;
+}
+
+.mr-30 {
+	margin-right: 30px;
+}
+
+.pr-10 {
+	padding-bottom: 10px;
+}
+
+.btn {
+    margin: 0 10px;
+}
+
+.col-md-4 {
+    .btn {
+        display: block;
+        margin-bottom: 20px;
+    }
+    .btn-link {
+        padding: auto 0;
+        margin: 35px 0 20px 0;
+        text-align: left;
+    }
+}
+
+.right-avtar{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.demo-bill{
+	width: 100%;
+	height: 600px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.demo-bill img{
+	max-width: 100%;
+	max-height: 550px;
+}
+.col-md-4 .btn {
+    display: inline-block;
+    
+}
+.reciept-demo .col-md-4::nth-child(3n+1){
+    clear:left;
+}
+ .reciept-demo .panel-default{
+	border:1px solid #ccc;
+	width: 100%;
+	height: 700px;
+	margin-bottom: 20px;
+	background: #fff;
+	transition: 0.3s;
+}
+.reciept-demo .panel-default:hover{
+	background: #3E4095;
+	color:#fff;
+} 
+.landing-page-header{
+	width:100%;
+	float: left;
+	background:url(assets/images/header.png) left bottom no-repeat;
+	background-size: 100%;
+	padding-bottom: 3%;
+}
+.subscribe-logo{
+	width:100%;
+	float: left;
+	background: #fff;
+	border-radius:0px 0px 10px 10px;
+	padding:0px 10px 10px 10px;
+}
+.landing-page-footer{
+	width:100%;
+	float: left;
+	background:url(assets/images/footer.png) left bottom no-repeat;
+	background-size: 100%;
+	padding:15% 0px 1%;
+	color:#fff;
+}
+.login-btn{
+	padding:10px 30px;
+	border-radius: 40px;
+	font-size: 20px;
+}
+.login-content{
+	width:100%;
+	float:left;
+	min-height: 300px;
+}
+.bg-red{
+	background: #E71B24 ;
+	color: #fff;
+}
+.bg-gray {
+	background-color: #f1f1f1;
+}
+.bg-pink{
+	background: #CE0592 ;
+	color: #fff;
+}
+.border-red{
+	border:1px solid #E71B24;
+}
+.border-black{
+	border:1px solid #000;
+}
+.w-100{
+	min-width:100%!important;
+}
+.w-90{
+	min-width:90%!important;
+}
+.w-80{
+	min-width:80%!important;
+}
+.w-33{
+	min-width:33%!important;
+}
+.mh-25{
+	max-height: 25px;
+}
+.w-48{
+	width:48%;
+}
+.w-40{
+	width:40%;
+}
+.w-50{
+	width:50%;
+}
+.w-4{
+	width:4%;
+}
+.w-10{
+	width:10%;
+}
+.w-70{
+	width:70%;
+}
+.w-30{
+	width:30%;
+}
+.w-20{
+	width:20%;
+}
+
+.lh-15{
+	line-height: 15px;
+}
+.lh-17 {
+	line-height:17px;
+}
+.lh-20{
+	line-height: 20px;
+}
+.lh-25{
+	line-height: 25px;
+}
+.lh-30{
+	line-height: 30px;
+}
+.lh-35{
+	line-height: 35px;
+}
+.lh-40{
+	line-height: 40px;
+}
+.lh-50{
+	line-height: 50px;
+}
+.jio-circle{
+	width:120px;
+	height: 105px;
+	border-radius: 50%;
+	border:2px solid #000;
+	margin:0px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 17px;
+	margin: 0px auto;
+}
+.top-circle{
+	padding:15px 0px 5px;
+	display: block;
+	line-height: 1.4em;
+}
+.bottom-circle{
+	border-top:2px solid #000;
+	margin:0px;
+	display: block;
+	 padding: 17px 0px;
+	 line-height: 1.4em;
+	 width: 118px;}
+	 .mw-30{
+		max-width:30%;}
+	.mw-10{
+		max-width:10%;
+	}
+	.mw-15{
+		max-width:15%;
+	}
+	.mw-200{
+		max-width:200px;
+	}
+	.mw-80{
+		max-width:80px;
+	}
+	.w-40px{
+		width:40px;
+	}
+	.fs-10{
+		font-size:10px;
+	}
+	.fs-12{
+		font-size:12px;
+	} 
+	.fs-15{
+		font-size:15px;
+	} 
+	.fs-18{
+		font-size:18px;
+	} 
+	.fs-20{
+		font-size:20px;
+	} 
+	.fs-22{
+		font-size:22px;
+	} 
+	.fs-30{
+		font-size:30px;
+	} 
+	.fs-25{
+		font-size:25px;
+	} 
+ 
+	.radius-40{
+		border-radius:40px;
+	}
+
+	.radius-60{
+		border-radius:60px;
+	}
+
+	.lyftlogo{
+		max-height: 30px;
+		width: auto;
+		max-width: 60px;
+	} 
+	.info-wrap .avatar-wrap {
+		margin: 0 auto;
+		border: 2px solid #fff;
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+	.btn-blue{
+		background: #416EF1;
+		color:#fff;
+		padding:5px 15px;
+	}
+	.font-weight-bold{
+		font-weight: bold;
+	}
+	.color-blue{
+		color: blue;
+	}
+	.vertical-text{
+		writing-mode: vertical-lr;
+		-ms-writing-mode: tb-rl;
+		font-size: 15px;
+		color: #fff;
+		border-right: 30px solid #0a9a07;
+		width:1%;
+		height:70%;
+		margin-right: -28px; 
+		}

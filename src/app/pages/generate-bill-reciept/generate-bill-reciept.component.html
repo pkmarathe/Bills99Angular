@@ -1,0 +1,45 @@
+<card cardTitle="Search Sample Reciept" isCollapse="true">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">Category</div>
+      <div class="col-md-4"><select name="categoryid" id="categoryid" class="form-control" [(ngModel)]="CategoryId">
+          <option *ngFor="let emps of categoryMasterDc" [value]="emps.CategoryId">
+            {{ emps.CategoryName }} </option>
+        </select>
+      </div>
+      <div class="col-md-2"><button class="btn btn-lg btn-success" (click)="getCategoryRecieptlist()">Search</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 btn btn-danger" *ngIf="error">
+    <span class="error">{{error}}
+    </span>
+  </div>
+  <div class="col-md-12 btn btn-success" *ngIf="success">
+    <span class="success">{{success}}
+    </span>
+  </div>
+</card> 
+
+<div class="row">
+  <div class="col-md-12">
+    <card cardTitle="Sample Reciept List : {{categoryRecieptDc.length}}">
+      <div class="row reciept-demo">
+        <div class="col-md-4 text-center" *ngFor="let item of categoryRecieptDc;let index = index">
+          <div class="panel-default">
+            <h4>{{index+1}}. {{item.BillRecieptName}}</h4>
+               
+             <p class="demo-bill">
+              <img src="http://api.bills99.com/{{item.BillRecieptSampleImage}}"></p>
+              <a (click)="onGenerateReciept(item.CategoryRecieptId)" class="btn btn-success">
+                  Generate
+                </a>
+        </div></div>
+      </div>
+      <!-- <div class="one" [innerHtml]="item.BillRecieptDynamicHtml"></div> -->
+    </card>
+  </div>
+</div>
+ 
+  <!-- loader.component.html -->
+  <ng4-loading-spinner> </ng4-loading-spinner>

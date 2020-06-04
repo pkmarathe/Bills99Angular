@@ -1,0 +1,1721 @@
+
+  <!-- <agm-map [latitude]="lat" [longitude]="lng" style="width: 100%;height: 250px;" [zoom]="12" [disableDefaultUI]="true">    
+  </agm-map>  -->
+  <!--<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>  
+     <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination" ></agm-direction> --> 
+  <!-- <button (click)="generatePdf()">Open PDF</button>
+  <button (click)="onPrint()">Print</button> --> 
+
+<div class="col-md-6">
+  <card cardTitle="Enter Reciept Details" isCollapse="true">
+    <div class="col-md-12">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4">
+            Font Style
+          </div>
+          <div class="col-md-8">
+            <select name="fontid" id="fontid" class="form-control" [(ngModel)]="billRecieptAddDc.FontId">
+              <option *ngFor="let emps of fontDropdownDc" [value]="emps.FontId">{{ emps.FontStyle }} </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4">
+            Receipt Date
+          </div>
+          <div class="col-md-8">
+            <ejs-datetimepicker id='datetimepicker' placeholder='Select a reciept date time'
+              [(ngModel)]="billRecieptAddDc.RecieptDate" [value]='billRecieptAddDc.RecieptDate'></ejs-datetimepicker>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4">
+            Business
+          </div>
+          <div class="col-md-8"><input type="text" maxlength="60" class="form-control"
+              [(ngModel)]="billRecieptAddDc.Business">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Address != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Address}}
+          </div>
+          <div class="col-md-8"><input type="text" class="form-control"
+              [(ngModel)]="billRecieptAddDc.Address">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.PickupAddress != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.PickupAddress}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" class="form-control" [(ngModel)]="billRecieptAddDc.PickupAddress">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.DropAddress != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.DropAddress}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" class="form-control" [(ngModel)]="billRecieptAddDc.DropAddress">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TaxiDate != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TaxiDate}}
+          </div>
+          <div class="col-md-8">
+            <ejs-datetimepicker id='datetimepickertaxidate' placeholder='Select a taxi date time'
+            [(ngModel)]="billRecieptAddDc.TaxiDate" [value]='billRecieptAddDc.TaxiDate'></ejs-datetimepicker> 
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.PickupTime != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.PickupTime}}
+          </div>
+          <div class="col-md-8">
+            <ejs-datetimepicker id='datetimepicker' placeholder='Select a pickup time'
+              [(ngModel)]="billRecieptAddDc.PickupTime" [value]='billRecieptAddDc.PickupTime'></ejs-datetimepicker> 
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.DropTime != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.DropTime}}
+          </div>
+          <div class="col-md-8">
+            <ejs-datetimepicker id='datetimepicker' placeholder='Select a drop time'
+            [(ngModel)]="billRecieptAddDc.DropTime" [value]='billRecieptAddDc.DropTime'></ejs-datetimepicker>  
+          </div>
+        </div>
+      </div>      
+      <div class="form-group" *ngIf="bREnableDc.TaxiKM != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TaxiKM}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TaxiKM">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.RecieptNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.RecieptNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.RecieptNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CityState != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CityState}}
+          </div>
+          <div class="col-md-8"><input type="text" maxlength="40" class="form-control"
+              [(ngModel)]="billRecieptAddDc.CityState">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.MobileNo != undefined">
+        <div class="row">
+          <div class="col-md-4">{{bREnableDc.MobileNo}}
+          </div>
+          <div class="col-md-8"><input type="text" maxlength="15" class="form-control"
+              [(ngModel)]="billRecieptAddDc.MobileNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.LandlineNo != undefined">
+        <div class="row">
+          <div class="col-md-4">{{bREnableDc.LandlineNo}}
+          </div>
+          <div class="col-md-8"><input type="text" maxlength="13" class="form-control"
+              [(ngModel)]="billRecieptAddDc.LandlineNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.HelplineNo != undefined">
+        <div class="row">
+          <div class="col-md-4">{{bREnableDc.HelplineNo}}
+          </div>
+          <div class="col-md-8"><input type="text" maxlength="13" class="form-control"
+              [(ngModel)]="billRecieptAddDc.HelplineNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4">
+            Currency
+          </div>
+          <div class="col-md-8">
+            <select name="currencyid" id="currencyid" class="form-control" [(ngModel)]="billRecieptAddDc.CurrencyId">
+              <option *ngFor="let emps of currencyDropdownDc" [value]="emps.CurrencyId">{{ emps.Currency }} </option>
+              <option [value]="0">None</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.PaymentType != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.PaymentType}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.PaymentType">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Trans != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Trans}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Trans">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Mcc != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Mcc}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Mcc">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Auth != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Auth}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Auth">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.ApprCode != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.ApprCode}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.ApprCode">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.WebSiteName != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.WebSiteName}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" class="form-control" [(ngModel)]="billRecieptAddDc.WebSiteName">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.DocNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.DocNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" class="form-control" [(ngModel)]="billRecieptAddDc.DocNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.GSTNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.GSTNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.GSTNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.BillNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.BillNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.BillNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.AtndId != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.AtndId}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.AtndId">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.FPId != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.FPId}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.FPId">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Pump != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Pump}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Pump">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.NozlNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.NozlNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.NozlNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Fuel != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Fuel}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Fuel">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Density != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Density}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Density">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TinNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TinNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TinNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TRXId != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TRXId}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TRXId">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.AccountNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.AccountNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.AccountNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.PompaSalans != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.PompaSalans}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.PompaSalans">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.NomarNota != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.NomarNota}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.NomarNota">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.JenisBBM != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.JenisBBM}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.JenisBBM">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.StationNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.StationNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.StationNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CINNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CINNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.CINNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.STNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.STNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.STNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.OPNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.OPNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.OPNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TENo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TENo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TENo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TCNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TCNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TCNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.REFNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.REFNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.REFNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Validation != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Validation}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Validation">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.PaymentService != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.PaymentService}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.PaymentService">
+          </div>
+        </div>
+      </div>
+     
+      <div class="form-group" *ngIf="bREnableDc.Lane != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Lane}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Lane">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Clerk != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Clerk}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Clerk">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Cashier != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Cashier}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Cashier">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.MRCH != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.MRCH}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.MRCH">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.EPSSequence != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.EPSSequence}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.EPSSequence">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.NetworkId != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.NetworkId}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.NetworkId">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TerminalId != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TerminalId}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TerminalId">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.SpaceNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.SpaceNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.SpaceNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TicketNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TicketNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TicketNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.SNNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.SNNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.SNNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Lot_Location != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Lot_Location}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Lot_Location">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.PayedAt != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.PayedAt}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.PayedAt">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.EntryDate != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.EntryDate}}
+          </div>
+          <div class="col-md-8">
+            <ejs-datetimepicker id='datetimepickerentry' placeholder='Select a entry date time'
+              [(ngModel)]="billRecieptAddDc.EntryDate" [value]='billRecieptAddDc.EntryDate'></ejs-datetimepicker> 
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.ExitDate != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.ExitDate}}
+          </div>
+          <div class="col-md-8">
+            <ejs-datetimepicker id='datetimepickerexit' placeholder='Select a exit date time'
+              [(ngModel)]="billRecieptAddDc.ExitDate" [value]='billRecieptAddDc.ExitDate'></ejs-datetimepicker>  
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.MachName != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.MachName}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.MachName">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.VehicleNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.VehicleNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.VehicleNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.VehicleType != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.VehicleType}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.VehicleType">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.RegNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.RegNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.RegNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TRNNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TRNNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TRNNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CSHRNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CSHRNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.CSHRNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.STRNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.STRNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.STRNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.HelpedBy != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.HelpedBy}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.HelpedBy">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.AID != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.AID}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.AID">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Signature != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Signature}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Signature">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CVM != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CVM}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.CVM">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.StoreNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.StoreNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.StoreNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.PharmacyNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.PharmacyNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.PharmacyNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.OrderNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.OrderNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.OrderNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.OrderDate != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.OrderDate}}
+          </div>
+          <div class="col-md-8">
+            <ejs-datetimepicker id='datetimepickerorder' placeholder='Select a order date time'
+              [(ngModel)]="billRecieptAddDc.OrderDate" [value]='billRecieptAddDc.OrderDate'></ejs-datetimepicker> 
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.DeliveryDate != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.DeliveryDate}}
+          </div>
+          <div class="col-md-8">
+            <ejs-datetimepicker id='datetimepickerdel' placeholder='Select a delivery date time'
+            [(ngModel)]="billRecieptAddDc.DeliveryDate" [value]='billRecieptAddDc.DeliveryDate'></ejs-datetimepicker>  
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Host != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Host}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Host">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.FaxNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.FaxNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.FaxNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.BillTo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.BillTo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.BillTo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.BillToEmailId != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.BillToEmailId}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.BillToEmailId">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.ShipTo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.ShipTo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.ShipTo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CustomerNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CustomerNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.CustomerNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CustomerPONo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CustomerPONo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.CustomerPONo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CardEntry != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CardEntry}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.CardEntry">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TransType != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TransType}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TransType">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CheckNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CheckNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.CheckNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CheckId != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CheckId}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.CheckId">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Tip != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Tip}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Tip">
+          </div>
+        </div>
+      </div>      
+      <div class="form-group" *ngIf="bREnableDc.CarName != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CarName}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.CarName">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Miles != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Miles}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Miles">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TaxiWTTime != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TaxiWTTime}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TaxiWTTime">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.BaseFare != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.BaseFare}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.BaseFare">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.DistanceFare != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.DistanceFare}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.DistanceFare">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TimeFare != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TimeFare}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TimeFare">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.SubCharges != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.SubCharges}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.SubCharges">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.SafeRideFee != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.SafeRideFee}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.SafeRideFee">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TaxiCallNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TaxiCallNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TaxiCallNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.LiftLineDiscountPrice != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.LiftLineDiscountPrice}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control"
+              [(ngModel)]="billRecieptAddDc.LiftLineDiscountPrice">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.PromotionalPricing != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.PromotionalPricing}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.PromotionalPricing">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.RideBy != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.RideBy}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.RideBy">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.LicensePlate != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.LicensePlate}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.LicensePlate">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TollPlaza != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TollPlaza}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TollPlaza">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Operator != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Operator}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Operator">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Section != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Section}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Section">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.VehicleStanderedWeight != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.VehicleStanderedWeight}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control"
+              [(ngModel)]="billRecieptAddDc.VehicleStanderedWeight">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.VehicleActualWeight != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.VehicleActualWeight}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.VehicleActualWeight">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.OverloadedVehicleFee != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.OverloadedVehicleFee}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control"
+              [(ngModel)]="billRecieptAddDc.OverloadedVehicleFee">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Shift != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Shift}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Shift">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Journey != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Journey}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Journey">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.TCId != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.TCId}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.TCId">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CSH != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CSH}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.CSH">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.RelationShipNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.RelationShipNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.RelationShipNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.BillDate != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.BillDate}}
+          </div>
+          <div class="col-md-8">
+            <ejs-datetimepicker id='datetimepickerbilldate' placeholder='Select a bill date time'
+            [(ngModel)]="billRecieptAddDc.BillDate" [value]='billRecieptAddDc.BillDate'></ejs-datetimepicker>  
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.DueDate != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.DueDate}}
+          </div>
+          <div class="col-md-8">
+            <ejs-datetimepicker id='datetimepickerduedate' placeholder='Select a due date time'
+            [(ngModel)]="billRecieptAddDc.DueDate" [value]='billRecieptAddDc.DueDate'></ejs-datetimepicker>  
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.LandMark != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.LandMark}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.LandMark">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.BillPeriod != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.BillPeriod}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.BillPeriod">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.BillPayDate != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.BillPayDate}}
+          </div>
+          <div class="col-md-8">
+            <ejs-datetimepicker id='datetimepickerbillpaydate' placeholder='Select a bill pay date time'
+            [(ngModel)]="billRecieptAddDc.BillPayDate" [value]='billRecieptAddDc.BillPayDate'></ejs-datetimepicker>  
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CreditLimit != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CreditLimit}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.CreditLimit">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.SecurityDeposit != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.SecurityDeposit}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.SecurityDeposit">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.PreviousBalance != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.PreviousBalance}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.PreviousBalance">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Payments != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Payments}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Payments">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.PayAmount != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.PayAmount}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.PayAmount">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Adjustments != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Adjustments}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Adjustments">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.LatePaymentFee != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.LatePaymentFee}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.LatePaymentFee">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.MonthlyRentals != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.MonthlyRentals}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.MonthlyRentals">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.UsageCharges != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.UsageCharges}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.UsageCharges">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.OneTimeCharges != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.OneTimeCharges}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.OneTimeCharges">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Taxes != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Taxes}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.Taxes">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.ServiceTaxRegNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.ServiceTaxRegNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.ServiceTaxRegNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.FixedlineNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.FixedlineNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.FixedlineNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.BroadbandId != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.BroadbandId}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.BroadbandId">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.AlternateMobileNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.AlternateMobileNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.AlternateMobileNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.ShipToStateCode != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.ShipToStateCode}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.ShipToStateCode">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.BillGenerateBy != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.BillGenerateBy}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.BillGenerateBy">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.SoldBy != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.SoldBy}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.SoldBy">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.SyNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.SyNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.SyNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.PANNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.PANNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.PANNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.InvoiceDetails != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.InvoiceDetails}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.InvoiceDetails">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.AadharNo != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.AadharNo}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.AadharNo">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.MemberShip != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.MemberShip}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.MemberShip">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.UsageP_ISD_IRCalling != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.UsageP_ISD_IRCalling}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control"
+              [(ngModel)]="billRecieptAddDc.UsageP_ISD_IRCalling">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.UsageDataCharges != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.UsageDataCharges}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.UsageDataCharges">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.UsageSMSCharges != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.UsageSMSCharges}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.UsageSMSCharges">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.UsageVASCharges != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.UsageVASCharges}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.UsageVASCharges">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.CurruntMonthDiscount != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.CurruntMonthDiscount}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control"
+              [(ngModel)]="billRecieptAddDc.CurruntMonthDiscount">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.BillDiscountWithTax != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.BillDiscountWithTax}}
+          </div>
+          <div class="col-md-8">
+            <input type="number" value="0.00" maxlength="50" class="form-control" [(ngModel)]="billRecieptAddDc.BillDiscountWithTax">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.Rating != undefined">
+        <div class="row">
+          <div class="col-md-4">
+            {{bREnableDc.Rating}}
+          </div>
+          <div class="col-md-8">
+            <input type="text" maxlength="1" value="0" class="form-control" [(ngModel)]="billRecieptAddDc.Rating">
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.RecieptLogo == true">
+        <div class="row">
+          <div class="col-md-4">
+            Logo
+          </div>
+          <div class="col-md-8">
+            <input #fileInput type="file" placeholder="Reciept Logo" title="Reciept Logo"
+              name="billRecieptAddDc.RecieptLogo" placeholder="Logo" id="billRecieptAddDc.RecieptLogo"
+              class="form-control" accept=".png,.jpg,.gif,.jpeg" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.ProfileImage == true">
+        <div class="row">
+          <div class="col-md-4">
+            Profile Image
+          </div>
+          <div class="col-md-8">
+            <input #fileInputpi type="file" placeholder="Profile Image" title="Profile Image"
+              name="billRecieptAddDc.ProfileImage" placeholder="Logo" id="billRecieptAddDc.ProfileImage"
+              class="form-control" accept=".png,.jpg,.gif,.jpeg" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.BarCode == true">
+        <div class="row">
+          <div class="col-md-4">
+            Bar Code Image
+          </div>
+          <div class="col-md-8">
+            <input #fileInputbci type="file" placeholder="Bar Code Image" title="Bar Code Image"
+              name="billRecieptAddDc.BarCode" placeholder="Logo" id="billRecieptAddDc.BarCode" class="form-control"
+              accept=".png,.jpg,.gif,.jpeg" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.EnableTax == true">
+        <div class="row">
+          <div class="col-md-4">
+            <select name="taxid" id="taxid" class="form-control" [(ngModel)]="TaxId">
+              <option *ngFor="let emps of taxDropdownDc" [value]="emps.TaxId">{{ emps.Tax }} </option>
+              <option [value]="0">None</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" placeholder="Tax %" [(ngModel)]="TaxInPercentage">
+          </div>
+          <div class="col-md-2">
+            <a (click)="onAddTax()" class="btn btn-success"> <i class="fa fa-plus"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.EnableTax == true">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-bordered table-hover">
+              <tr *ngFor="let item of BillRecieptTaxInfoDc;let index = index">
+                <td style="width:10%;">{{index+1}}</td>
+                <td style="width:50%;">{{item.Tax}}</td>
+                <td style="width:30%;">{{item.TaxInPercentage}}</td>
+                <td style="width:10%;">
+                  <a (click)="onDeleteTax(index)" class="btn btn-danger">
+                    <i class="fa fa-trash"></i>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.EnableItem == true">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <input type="text" maxlength="100" class="form-control" placeholder="Item No" [(ngModel)]="ItemNo">
+            </div>
+            <div class="col-md-4">
+              <input type="text" class="form-control" placeholder="Item Name" [(ngModel)]="ItemName">
+            </div>
+            <div class="col-md-4">
+              <input type="text" maxlength="30" class="form-control" placeholder="UOM" [(ngModel)]="UOM">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <input type="number" maxlength="10" class="form-control" placeholder="Qty" [(ngModel)]="Quantity">
+            </div>
+            <div class="col-md-4">
+              <input type="number" maxlength="10" class="form-control" placeholder="Price" [(ngModel)]="Price">
+            </div>
+            <div class="col-md-2">
+              <a (click)="onAddItem()" class="btn btn-success"> <i class="fa fa-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="RecieptType == 'PharmacyReceipt5'">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <input type="text" maxlength="100" class="form-control" placeholder="Item No" [(ngModel)]="ItemNo">
+            </div>
+             <div class="col-md-4">
+              <input type="text" maxlength="100" class="form-control" placeholder="Item" [(ngModel)]="ItemName">
+            </div>
+            <div class="col-md-4">
+              <input type="text" maxlength="80" class="form-control" placeholder="Description"
+                [(ngModel)]="Description">
+            </div>                    
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <input type="number" maxlength="10" class="form-control" placeholder="Qty" [(ngModel)]="Quantity">
+            </div>  
+            <div class="col-md-4">
+              <input type="number" maxlength="10" class="form-control" placeholder="Price" [(ngModel)]="Price">
+            </div>           
+            <div class="col-md-4">
+              <input type="text" maxlength="10" class="form-control" placeholder="Type" [(ngModel)]="Type">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <input type="text" maxlength="100" class="form-control" placeholder="Mfrs" [(ngModel)]="Mfrs">
+            </div>
+            <div class="col-md-4">
+              <input type="text" maxlength="10" class="form-control" placeholder="BatchNo" [(ngModel)]="BatchNo">
+            </div>
+            <div class="col-md-4">
+              <input type="text" maxlength="10" class="form-control" placeholder="Expiry" [(ngModel)]="Expiry">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <input type="text" maxlength="100" class="form-control" placeholder="UOM" [(ngModel)]="UOM">
+            </div>
+            <div class="col-md-2">
+              <a (click)="onAddItem()" class="btn btn-success"> <i class="fa fa-plus"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="bREnableDc.EnableItem == true || RecieptType == 'PharmacyReceipt5'">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-bordered table-hover">
+              <tr *ngFor="let item of BillRecieptItemInfoDc;let index = index">
+                <td style="width:10%;">{{index+1}}</td>
+                <td style="width:20%;">{{item.ItemNo}}</td>
+                <td style="width:30%;">{{item.ItemName}}</td>
+                <td style="width:20%;">{{item.UOM}}</td>
+                <td style="width:10%;">{{item.Quantity}}</td>
+                <td style="width:10%;">{{item.Price}}</td>
+                <td style="width:10%;">
+                  <a (click)="onDeleteItem(index)" class="btn btn-danger">
+                    <i class="fa fa-trash"></i>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <button *ngIf="billRecieptAddDc.BillRecieptId == 0" class="btn btn-lg btn-success"
+              (click)="onGenerateReciept()">Generate Reciept</button>
+            <button *ngIf="billRecieptAddDc.BillRecieptId > 0" class="btn btn-lg btn-success"
+              (click)="onGenerateReciept()">Update Reciept</button>
+            <button class="btn btn-warning" (click)="onBack()">Cancel</button>
+            <button class="btn btn-info" (click)="onRecieptList()">Reciept List</button></div>
+        </div>
+      </div>
+    </div>
+  </card>
+</div>
+<div class="col-md-6">
+  <card cardTitle="Reciept" isCollapse="true">
+    <div class="form-group djb-font">
+      <div class="row" id="print-section">
+        <div class="col-md-12" *ngIf="billRecieptAddDc.BillRecieptId > 0" style="width:100%;overflow:auto;">
+          <div [innerHtml]="getDynamicHtml()"></div> 
+          <!-- <iframe width='100%' height='250' src='https://maps.google.com/maps?width=100%&height=250&q=21/1 race course road, indore;&z=12&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe> -->
+          <!-- <table class='custom-table ptmono-font' style='font-family:PT Mono, monospace;'> <tr> <td colspan='2' class='text-center'> Hello Taxi<br>khargone, madhya pradesh,india<br>India</td> </tr> <tr> <td colspan='2'> <div class='line-divider'></div> </td> </tr> <tr> <td>19/12/2019</td> <td>TRANS: 00Fdsw </td> </tr> <tr> <td>07:30 PM</td> <td>AUTH: sdsds</td> </tr>  <tr> <td colspan='2'> <div class='line-divider'></div> </td> </tr> <tr> <td colspan='2' class='text-center'>VISA 4332</td> </tr><tr><td colspan='2'><agm-map [latitude]='lat' [longitude]='lng' style='width: 100%;height: 250px;' [zoom]='12' [disableDefaultUI]='true'><agm-marker [latitude]='lat' [longitude]='lng'></agm-marker></agm-map></td></tr> <tr> <td colspan='2'> <div class='line-divider'></div> </td> </tr><tr> <td colspan='2' style="text-align:right"> <table align='right' class='ptmono-font text-right' style='color:#686868;'><tr><td width='40%'>SUBTOTAL:</td><td>$110</td></tr><tr><td>TAX:</td><td>$5.5</td></tr><tr><td>TOTAL:</td><td>$115.5</td></tr></table> </td> </tr> </table> -->
+          <!-- <div class="row"> <div class="col-sm-6"> <div class="form-group"> <table class="custom-table chivo-font"> <tr> <td><b>13 March 2020, 07:30 PM Request</b></td> </tr> <tr> <td>Rate Trip   <img src='http://app.bills99.com/assets/images/yellowstar.png' width='15px;'>   <img src='http://app.bills99.com/assets/images/yellowstar.png' width='15px;'>   <img src='http://app.bills99.com/assets/images/yellowstar.png' width='15px;'>   <img src='http://app.bills99.com/assets/images/yellowstar.png' width='15px;'>   <img src='http://app.bills99.com/assets/images/graystar.png' width='15px;'></td> </tr> <tr> <td><a href="#">Resend Reciept  <i class="fa-bookmark fa"></i></a></td> </tr> <tr> <td><agm-map [latitude]='lat' [longitude]='lng' style='width: 100%;height: 200px;' [zoom]='12' [disableDefaultUI]='true'> <agm-direction *ngIf='dir' [origin]='dir.origin' [destination]='dir.destination' ></agm-direction> </agm-map></td> </tr> <tr> <td> <table class="custom-table chivo-font"> <tr> <td><span class="text-gray">Car</span><br>UberXL</td> <td><span class="text-gray">Miles</span><br>15.3</td> <td><span class="text-gray">Trip Time</span><br>1:30:0</td> <td><span class="text-gray">Trip Fare</span><br>$95.78</td> </tr> </table> </td> </tr> <tr> <td> </td> </tr> <tr> <td> <table class="custom-table chivo-font"> <tr> <td style="width:16px;" class="text-gray ver-gray-line"> <i class="fa fa-circle"></i> </td> <td>21/1 race course road, indore<br><span class="text-gray">11:00 AM</span><br><br></td> </tr> <tr> <td class="text-gray" style="padding-top: 0px;"> <i class="fa fa-square"></i> </td> <td style="padding-top: 0px;">79 patnipura, indore<br><span class="text-gray">12:30 PM</span></td> </tr> </table> </td> </tr> </table> </div> </div> <div class="col-sm-6"> <div class="form-group"> <table class="custom-table chivo-font"> <tr> <td colspan="2"><b>Fare Breakdown</b></td> </tr> <tr> <td>Trip Fare</td> <td class="text-right">$93.12</td> </tr> <tr> <td>Subtotal</td> <td class="text-right">$93.12</td> </tr> <tr> <td>Tolls, Surcharges, and Fees</td> <td class="text-right">$2.66</td> </tr> <tr> <td>Total</td> <td class="text-right">$95.78</td> </tr> <tr> <td><img src="../../assets/images/visa.jpg">   **** VISA</td> <td class="text-right">$95.78</td> </tr> <tr> <td colspan="2"><br><button class="btn btn-block btn-black btn-lg">ADD A TIP</button></td> </tr> </table> </div> </div> </div> -->
+        </div>
+        <div class="col-md-12" *ngIf="billRecieptAddDc.BillRecieptId == 0">
+          <div class="row reciept-demo">
+            <div class="panel-default">
+              <p class="demo-bill">
+                <img src="http://api.bills99.com/{{categoryRecieptDc.BillRecieptSampleImage}}"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+         <div class="col-md-12">            
+           <a class="btn btn-success" *ngIf="categoryRecieptDc.BillRecieptSampleImage != null && categoryRecieptDc.BillRecieptSampleImage != ''"  target="_blank" href="http://api.bills99.com/{{categoryRecieptDc.BillRecieptSampleImage}}">View Sample Receipt</a>
+           <a class="btn btn-success" *ngIf="categoryRecieptDc.BillRecieptSampleImage == null || categoryRecieptDc.BillRecieptSampleImage == ''"  target="_blank" href="http://api.bills99.com/{{billRecieptAddDc.CategoryRecieptPDFDc.BillRecieptSampleImage}}">View Sample Receipt</a>
+          <button class="btn btn-success" *ngIf="billRecieptAddDc.BillRecieptId > 0" (click)="onDownload()">Download</button>
+          <!-- <button class="btn btn-info" (click)="print()">Print</button> -->
+        </div>
+      </div>
+    </div>
+  </card>
+</div>
+
+ <!-- loader.component.html -->
+ <ng4-loading-spinner> </ng4-loading-spinner>
+ 

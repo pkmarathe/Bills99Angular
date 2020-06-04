@@ -1,0 +1,103 @@
+<div class="col-md-12 btn btn-danger" *ngIf="error">
+  <span class="error">{{error}}
+  </span>
+</div>
+<div class="col-md-12 btn btn-success" *ngIf="success">
+  <span class="success">{{success}}
+  </span>
+</div>
+<!-- <div class="row"> -->
+<div class="col-md-12">
+  <!-- <profile></profile> -->
+  <div class="card">
+    <div class="profile-wrap animated fadeIn">
+      <div class="info-wrap">
+        <div class="avatar-wrap">
+          <img src="{{profileimage}}" alt="avatar">
+        </div>
+        <span class="user-name">{{registrationDc.Name}}</span>
+        <span class="user-post">{{registrationDc.Designation}}</span>
+        <span class="map-location">
+          <i class="fa fa-map-marker"></i>
+          <span>{{registrationDc.Address}}</span>
+        </span>
+      </div>
+      <div class="profile-head">
+        <img src="{{profileimage}}" alt="profile-head-bg" class="profile-head-bg">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="row card card-block">
+    <div class="form-group">
+      <div class="col-md-6">
+        <label class="control-label">Name</label>
+        <input type="text" class="form-control" [(ngModel)]="registrationDc.Name" placeholder="Name">
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Mobile No</label>
+        <input type="text" class="form-control" [(ngModel)]="registrationDc.MobileNo" placeholder="Mobile Number">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-6">
+        <label class="control-label">Address</label>
+        <input type="text" class="form-control" [(ngModel)]="registrationDc.Address" placeholder="Address">
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Designation</label>
+        <input type="text" class="form-control" [(ngModel)]="registrationDc.Designation" placeholder="Designation">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-6">
+        <label class="control-label">EmailId</label>
+        <input type="text" class="form-control" [(ngModel)]="registrationDc.EmailId" placeholder="EmailId">
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Password</label>
+        <input type="password" class="form-control" [(ngModel)]="registrationDc.Password" placeholder="Password">
+      </div>
+    </div>
+    <div class="form-group">
+      <!-- <div class="col-md-6">
+        <label class="control-label">Role</label>
+        <select name="role" id="role" class="form-control" [(ngModel)]="registrationDc.Role">
+          <option value="admin">admin</option>
+          <option value="customer">customer</option>
+        </select>
+      </div> -->
+      <div class="col-md-6">
+        <label class="control-label">Profile Image</label>
+        <input #fileInput type="file" placeholder="Profile Image" name="registrationDc.profileimage"
+          id="registrationDc.profileimage" class="form-control" accept=".png,.jpg,.gif,.jpeg" />
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-primary" style="margin-left: 0px;" *ngIf="registrationDc.UserId > 0"
+          (click)="onUpdateProfile()">Update Profile</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- loader.component.html -->
+<ng4-loading-spinner> </ng4-loading-spinner>
+
+<!-- </div> -->
+<!-- <button class="btn btn-primary" (click)="openModal(myModal)">open my modal</button>
+
+<modal #myModal>
+    <modal-header>
+      <h3>Modal header</h3>
+    </modal-header>
+    <modal-content>
+      <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.
+        Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
+        Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip
+        quis cardigan american apparel, butcher voluptate nisi qui.</p>
+    </modal-content>
+    <modal-footer>
+      <button class="btn btn-primary" (click)="closeModal(myModal)">close</button>
+    </modal-footer>
+  </modal>   -->

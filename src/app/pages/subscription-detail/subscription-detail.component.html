@@ -1,0 +1,172 @@
+<div class="landing-page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <div class="subscribe-logo"> <img src="assets/images/Bills99.png" alt="avatar"></div>
+          <p>&nbsp;</p>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="form-group text-right pt-20">
+          <button class="btn btn-blue btn-rounded login-btn" type="button" (click)="gologin()">Login</button>
+          <!-- <button class="btn btn-white  btn-rounded login-btn" type="button" (click)="onpayment()">Stripe Payment</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="login-content">
+  <div class="container">
+    <h1 class="text-center">Get Started Today</h1>
+    <h3 class="text-center">Plans to suit your requirements. Choose your plan, Cancel anytime.</h3>
+    <p class="text-center">
+    </p>
+    <p>&nbsp;</p>
+
+    <div class="row w-75" style='text-align: center;'>
+
+      <div class="col-md-3 col-sm-6 col-xs-12 text-center princing-item {{item.Color}}"
+        *ngFor="let item of subscriptionPlanDc;let index = index">
+        <div class="pricing-divider "> 
+          <button class="btn btn-white btn-rounded btn-lg" type="button">{{item.SubscriptionPlan}}</button>
+          <h5>{{item.SubscriptionPlanDesc}}</h5>
+          <h3 class="text-light"><i class="fa fa-dollar"></i>{{item.Amount}}</h3>
+          <h4 class="my-0 display-2 text-light font-weight-normal mb-3"></h4>{{item.PaymentType}}<br>
+          <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1'
+            preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve'
+            xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+            <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+  c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+            <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+  c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+            <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+  H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+            <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+  c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+          </svg>
+        </div>
+
+        <div class="card-body bg-white mt-0 shadow">
+          <ul class="list-unstyled mb-30 position-relative">
+            <li><b>Make</b> Custom Receipts</li>
+            <li><b>All</b> Receipt Styles</li>
+            <li><b>Custom</b> Fonts</li>
+            <li><b *ngIf="item.SubscriptionPlanId == 1">Watermarked Receipts</b><b *ngIf="item.SubscriptionPlanId != 1">No Watermark on Receipts</b></li>
+          </ul>
+          <button type="button" class="btn btn-lg btn-block  btn-{{item.Color}}"
+            (click)="goplanreg(item.SubscriptionPlanId)">Select Plan</button>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-3 col-sm-6 col-xs-12 princing-item blue">
+        <div class="pricing-divider ">
+          <button class="btn btn-white  btn-rounded btn-lg" type="button">Weekly</button>
+          <H5>Most Popular Plan</H5>
+          <h3 class="text-light"><i class="fa fa-inr"></i>15.99 / Month</h3>
+          <h4 class="my-0 display-2 text-light font-weight-normal mb-3">or <a href="#">SAVE 38% annual</a></h4><br>
+          <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1'
+            preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve'
+            xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+            <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+    c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+            <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+    c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+            <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+    H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+            <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+    c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+          </svg>
+        </div>
+
+        <div class="card-body bg-white mt-0 shadow">
+          <ul class="list-unstyled mb-30 position-relative">
+            <li><b>Make </b> Custom Receipts</li>
+            <li><b>ALL Receipt</b> Styles (50+)</li>
+            <li><b>Custom</b> Fonts</li>
+            <li><b>iOS App Access</b></li>
+          </ul>
+          <button type="button" class="btn btn-lg btn-block  btn-blue ">Select Plan</button>
+        </div>
+      </div> 
+
+      <div class="col-md-3 col-sm-6 col-xs-12 princing-item green">
+        <div class="pricing-divider ">
+          <button class="btn btn-white  btn-rounded btn-lg" type="button">Monthly</button>
+
+          <h5>Most Popular Plan</h5>
+          <h3 class="text-light"><i class="fa fa-inr"></i>15.99 / Month</h3>
+          <h4 class="my-0 display-2 text-light font-weight-normal mb-3">or <a href="#">SAVE 38% annual</a></h4><br>
+          <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1'
+            preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve'
+            xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+            <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+    c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+            <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+    c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+            <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+    H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+            <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+    c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+          </svg>
+        </div>
+
+        <div class="card-body bg-white mt-0 shadow">
+          <ul class="list-unstyled mb-30 position-relative">
+            <li><b>300</b> users included</li>
+            <li><b>20 GB</b> of storage</li>
+            <li><b>Free</b> Email support</li>
+            <li><b>iOS App Accesss</b></li>
+          </ul>
+          <button type="button" class="btn btn-lg btn-block  btn-green ">Select Plan</button>
+        </div>
+      </div> 
+
+      <div class="col-md-3 col-sm-6 col-xs-12 princing-item red">
+        <div class="pricing-divider ">
+          <button class="btn btn-white  btn-rounded btn-lg" type="button">Yearly</button>
+
+          <h5>PRO + API Access</h5>
+          <h3 class="text-light"><i class="fa fa-inr"></i>49.99 / Month</h3>
+          <h4 class="my-0 display-2 text-light font-weight-normal mb-3">or <a href="#">SAVE 38% annual</a></h4><br>
+          <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1'
+            preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve'
+            xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+            <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+    c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+            <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+    c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+            <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+    H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+            <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+    c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+          </svg>
+        </div>
+        <div class="card-body bg-white mt-0 shadow">
+          <ul class="list-unstyled mb-30 position-relative">
+            <li><b>All PRO</b> Plan Features</li>
+            <li><b>Quickbooks</b> Integration</li>
+            <li><b>API Access </b> for Batch Receipts</li>
+            <li><b>iOS App Access</b></li>
+          </ul>
+          <button type="button" class="btn btn-lg btn-block  btn-red ">Select Plan</button>
+        </div>
+      </div> -->
+
+    </div>
+
+  </div>
+</div>
+<div class="landing-page-footer">
+  <div class="container text-center">
+      &copy; Copyright 2019&nbsp;&nbsp;| &nbsp;&nbsp;  
+      <a target="_blank" style="color: white;" href="https://bills99.com">Home</a>&nbsp;&nbsp;| &nbsp;&nbsp;  
+      <a target="_blank" style="color: white;" href="https://bills99.com/privacy-policy/">Privacy Policy</a>&nbsp;&nbsp;| &nbsp;&nbsp;  
+      <a target="_blank" style="color: white;" href="https://bills99.com/terms-of-use">Terms & Conditions of Use</a>&nbsp;&nbsp;| &nbsp;&nbsp;  
+      <a target="_blank" style="color: white;" href="https://bills99.com/disclaimer/">Disclaimer</a>&nbsp;&nbsp;| &nbsp;&nbsp;  
+      All Rights Reserved
+  </div>
+</div>
+
+   <!-- loader.component.html -->
+   <ng4-loading-spinner> </ng4-loading-spinner>

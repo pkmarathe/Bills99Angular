@@ -1,0 +1,70 @@
+<button class="config-switch" (click)="configToggle()">
+  <img src="{{profileimage}}" alt="avatar" class="right-avtar" *ngIf="!isConfigToggle">
+  <i class="fa fa-tasks" *ngIf="!isConfigToggle" style="display: none;"></i>
+  <i class="fa fa-chevron-right" *ngIf="isConfigToggle"></i>
+</button>
+<div class="right-config-wrap" [ngClass]="{'right-config-wrap-on':isConfigToggle}">
+  <!-- <div class="config-header">
+    <h3 class="config-title">
+      <i class="fa fa-cogs"></i>
+      <span>Settings</span>
+    </h3>
+    <p class="desc">Settings desc Settings desc Settings desc Settings desc.</p>
+  </div> -->
+  <p>&nbsp;</p>
+  <div class="col-sm-12">
+    <p><button class="btn btn-success btn-block" (click)="onsubscriptionplan()">My Subscription Plan</button></p>
+    <p><button class="btn btn-info btn-block" (click)="onupdateprofile()">Update Profile</button></p>
+    <p><button class="btn btn-warning btn-block" (click)="openModal(myModal)">Change Password</button></p>
+    <p><button class="btn btn-primary btn-block" (click)="onLoggedout()">Logout</button></p>
+  </div>
+  <!-- <ul class="config-content">y
+   
+    <li class="config-list">
+        <a href="#">   <span>Logout</span>     </a>
+    </li>
+
+    
+  </ul> -->
+
+  <modal #myModal>
+    <modal-header>
+      <h3>Change Password</h3>
+    </modal-header>
+    <modal-content>
+      <card cardTitle="Change Password" isCollapse="true">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-3">Old Password</div>
+            <div class="col-md-9"><input type="password" class="form-control" [(ngModel)]="OldPassword"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-3">New Password</div>
+            <div class="col-md-9"><input type="password" class="form-control" [(ngModel)]="NewPassword"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-3">Confirm Password</div>
+            <div class="col-md-9"><input type="password" class="form-control" [(ngModel)]="ConfirmPassword"></div>
+          </div>
+        </div>
+        <div class="col-md-11 btn btn-danger" *ngIf="error">
+          <span class="error">{{error}}
+          </span>
+        </div>
+        <div class="col-md-11 btn btn-success" *ngIf="success">
+          <span class="success">{{success}}
+          </span>
+        </div>
+      </card>
+    </modal-content>
+    <modal-footer>
+      <button class="btn btn-info" (click)="onchange(myModal)">Change
+        Password</button>
+      <button class="btn btn-primary" (click)="closeModal(myModal)">close</button>
+    </modal-footer>
+  </modal>
+</div>

@@ -1,0 +1,66 @@
+<card cardTitle="Manage Tax" isCollapse="true">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-1">Tax</div>
+      <div class="col-md-3"><input type="text" class="form-control" [(ngModel)]="taxMasterAddDc.Tax"></div>
+
+      <div class="col-md-1">Active</div>
+      <div class="col-md-3">
+        <select name="isactive" id="isactive" class="form-control" [(ngModel)]="taxMasterAddDc.IsActive">
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button *ngIf="taxMasterAddDc.TaxId == 0" class="btn btn-lg btn-success" (click)="onAddUpdateTax()">Add</button>
+        <button *ngIf="taxMasterAddDc.TaxId > 0" class="btn btn-lg btn-success"
+          (click)="onAddUpdateTax()">Update</button><button class="btn btn-lg btn-warning"
+          (click)="onCancel()">Cancel</button></div>
+    </div>
+  </div>
+  <div class="col-md-12 btn btn-danger" *ngIf="error">
+    <span class="error">{{error}}
+    </span>
+  </div>
+  <div class="col-md-12 btn btn-success" *ngIf="success">
+    <span class="success">{{success}}
+    </span>
+  </div>
+</card> 
+
+<div class="row">
+  <div class="col-md-12">
+    <card cardTitle="Tax List : {{taxMasterDc.length}}">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Tax</th>
+            <th>Active</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of taxMasterDc;let index = index">
+            <!-- | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber} -->
+            <td>{{index+1}}</td>
+            <td>{{item.Tax}}</td>
+            <td><input class="checkbox checkbox-success" type="checkbox" id="color-checkbox3"
+                *ngIf="item.IsActive == true" disabled=true checked>
+              <input class="checkbox checkbox-success" type="checkbox" id="color-checkbox3"
+                *ngIf="item.IsActive == false" disabled=true unchecked>
+              <label class="check-label" for="color-checkbox3"></label></td>
+            <td>
+              <a (click)="onEditTax(item.TaxId)" class="btn btn-success">
+                <i class="fa fa-pencil"></i>
+              </a>
+              <a (click)="onDeleteTax(item.TaxId)" class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </card>
+  </div>
+</div>

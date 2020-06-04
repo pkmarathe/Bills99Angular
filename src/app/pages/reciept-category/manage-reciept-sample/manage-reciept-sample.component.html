@@ -1,0 +1,129 @@
+<card cardTitle="Manage Sample Reciept" isCollapse="true">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">Reciept Name</div>
+      <div class="col-md-4">
+        <input type="text" class="form-control" [(ngModel)]="categoryRecieptAddDc.BillRecieptSampleHtml">
+      </div>
+      <div class="col-md-2">Active</div>
+      <div class="col-md-4">
+        <select name="isactive" id="isactive" class="form-control" [(ngModel)]="categoryRecieptAddDc.IsActive">
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">Reciept<br><br><button *ngIf="categoryRecieptAddDc.CategoryRecieptId == 0"
+          class="btn btn-success" (click)="onAddUpdateCategoryReciept()">Add</button>
+        <button *ngIf="categoryRecieptAddDc.CategoryRecieptId > 0" class="btn btn-lg btn-success"
+          (click)="onAddUpdateCategoryReciept()">Update</button><br><br>
+        <button class="btn btn-warning" (click)="onCancel()">Cancel</button><br><br>
+        <button class="btn btn-warning" (click)="openModal(myModal)">Tag Replace</button></div>
+      <div class="col-md-10">
+        <ckeditor [(ngModel)]="categoryRecieptAddDc.BillRecieptDynamicHtml">
+          <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)" [icon]="'save.png'"
+            [label]="'Save Document'" [toolbar]="'clipboard,1'">
+          </ckbutton>
+        </ckeditor>
+        <!-- <input type="text" class="form-control" [(ngModel)]="categoryRecieptAddDc.BillRecieptDynamicHtml"> -->
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 btn btn-danger" *ngIf="error">
+    <span class="error">{{error}}
+    </span>
+  </div>
+  <div class="col-md-12 btn btn-success" *ngIf="success">
+    <span class="success">{{success}}
+    </span>
+  </div>
+</card>
+
+<div class="row">
+  <div class="col-md-12">
+    <card cardTitle="Reciept List : {{categoryRecieptDc.length}}">
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <tr *ngFor="let item of categoryRecieptDc;let index = index">
+            <td>
+              <h3>{{index+1}}. {{item.BillRecieptName}} - Created On : {{item.CreatedDate | date:'dd MMM yyyy'}}
+                <a (click)="onEditCategoryReciept(item.CategoryRecieptId)" class="btn btn-success">
+                  <i class="fa fa-pencil"></i>
+                  </a>
+                <a (click)="onDeleteCategoryReciept(item.CategoryRecieptId)" class="btn btn-danger">
+                  <i class="fa fa-trash"></i>
+                </a>
+              </h3>
+              <br>
+              <div class="one" [innerHtml]="item.BillRecieptDynamicHtml"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </card>
+  </div>
+</div>
+
+<modal #myModal>
+  <modal-header>
+    <h3>Tag Replace Description</h3>
+  </modal-header>
+  <modal-content>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Tag</th>
+          <th>Tag Replace Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[RecieptLogo]</td>
+          <td>Tag Replace In Place Of logo path in href value</td>
+        </tr>
+        <tr>
+          <td>[FontStyle]</td>
+          <td>Tag Replace In Place Of Font Family Value</td>
+        </tr>
+        <tr>
+          <td>[Business]</td>
+          <td>Tag Replace In Place Of Business Name</td>
+        </tr>
+        <tr>
+          <td>[Address]</td>
+          <td>Tag Replace In Place Of Address</td>
+        </tr>
+        <tr>
+          <td>[CityState]</td>
+          <td>Tag Replace In Place Of City, State</td>
+        </tr>
+        <tr>
+          <td>[MobileNo]</td>
+          <td>Tag Replace In Place Of Telephone</td>
+        </tr>
+        <tr>
+          <td>[Date]</td>
+          <td>Tag Replace In Place Of Reciept Date</td>
+        </tr>
+        <tr>
+          <td>[Time]</td>
+          <td>Tag Replace In Place Of Reciept Time</td>
+        </tr>
+        <tr>
+          <td>[PaymentType]</td>
+          <td>Tag Replace In Place Of Payment Type Like VISA, Master Card, Cash</td>
+        </tr>
+        <tr>
+          <td>[Total]</td>
+          <td>Tag Replace In Place Of Item & Tax Calculation</td>
+        </tr>
+      </tbody>
+    </table>
+  </modal-content>
+  <modal-footer>
+    <button class="btn btn-primary" (click)="closeModal(myModal)">close</button>
+  </modal-footer>
+</modal>

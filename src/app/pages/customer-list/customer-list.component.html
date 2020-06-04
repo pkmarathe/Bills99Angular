@@ -1,0 +1,147 @@
+<card cardTitle="Search Customer" isCollapse="true">
+      <div class="form-group">
+         <div class="row">
+            <div class="col-md-1">Customer</div>
+            <div class="col-md-3"><input type="text" class="form-control" [(ngModel)]="registrationSearchDc.Name"></div>
+            <div class="col-md-1">Email Id</div>
+            <div class="col-md-3">
+               <input type="text" class="form-control" [(ngModel)]="registrationSearchDc.EmailId">
+            </div>
+            <div class="col-md-1">Designation</div>
+            <div class="col-md-3">
+               <input type="text" class="form-control" [(ngModel)]="registrationSearchDc.Designation">
+            </div>
+         </div>
+      </div>
+      <div class="form-group">
+         <div class="row">
+            <div class="col-md-1">Active</div>
+            <div class="col-md-3">
+               <select name="isactive" id="isactive" class="form-control"
+               [(ngModel)]="registrationSearchDc.IsActive">
+               <option value="All">All</option>
+               <option value="True">Active</option>
+               <option value="False">Inactive</option>
+               </select>
+            </div>
+            <div class="col-md-4"><button class="btn btn-lg btn-success" (click)="getcustomerlist()">Search</button> <button class="btn btn-lg btn-info" (click)="export()">Export</button></div>
+         </div>
+      </div>
+      <div class="col-md-12 btn btn-danger" *ngIf="error">
+         <span class="error">{{error}}
+         </span>
+       </div>
+       <div class="col-md-12 btn btn-success" *ngIf="success">
+         <span class="success">{{success}}
+         </span>
+       </div>
+   </card>   
+   <div class='row'>
+      <div class='col-md-12'>
+         <card cardTitle='Customer List : {{registrationDc.length}}'>
+            <table class='table table-bordered table-hover'>
+               <thead>
+                  <tr>
+                     <th>#</th>
+                     <th>Image</th>
+                     <th>Name</th>
+                     <th>Mobile No</th>
+                     <th>Address</th>
+                     <th>EmailId</th>
+                     <th>Password</th>
+                     <th>Role</th>
+                     <th>Active</th>
+                     <th>Created Date</th>
+                     <th>Action</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor='let item of registrationDc;let index = index'>
+                     <!-- | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber} -->
+                     <td>{{index+1}}</td>
+                     <td><img src='https://api.bills99.com/{{item.ProfileImage}}' width='80px'
+                        class='right-avtar'></td>
+                     <td>{{item.Name}}<br>{{item.Designation}}</td>
+                     <td>{{item.MobileNo}}</td>
+                     <td>{{item.Address}}</td>
+                     <td>{{item.EmailId}}</td>
+                     <td>{{item.Password}}</td>
+                     <td>{{item.Role}}</td>
+                     <td><input class='checkbox checkbox-success' type='checkbox' id='color-checkbox3'
+                        *ngIf='item.IsActive == true' checked>
+                        <input class='checkbox checkbox-success' type='checkbox' id='color-checkbox3'
+                           *ngIf='item.IsActive == false' unchecked>
+                        <label class='check-label' for='color-checkbox3'></label>
+                     </td>
+                     <td>{{item.CreatedDate | date:'dd MMM yyyy'}}</td>
+                     <td>
+                        <a (click)="openModal(myModal,item.UserId,item.IsActive)" class="btn btn-success">
+                           <i class="fa fa-pencil"></i>
+                         </a>
+                     </td>
+                     <!--<td>
+                        <button mat-mini-fab color='primary' matTooltip='Edit' class="cyan-700-bg" (click)="onOpenEdit(row.CircularId)">
+                         <mat-icon class="mat-15 font-size-15 primary-30-fg">edit</mat-icon>
+                        </button>
+                        <button mat-mini-fab color="warn" matTooltip="Delete" (click)="onDelete(row.CircularId)">
+                         <mat-icon class="mat-15 font-size-15 primary-30-fg">delete</mat-icon>
+                        </button> 
+                        </td>-->
+                  </tr>
+               </tbody>
+            </table>
+            <!-- <form class="pagination-wrapper">
+               <div class="form-group pages">
+                 <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)" maxSize="9"
+                   directionLinks="true" autoHide="true" previousLabel="Prev" nextLabel="Next"
+                   screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                   screenReaderCurrentLabel="You're on page">
+                 </pagination-controls>
+               </div>
+               <div class="form-group options pages">
+                 <div class="input-group input-group-sm">
+                   <select class="form-control" name="pageChangedName" [(ngModel)]="pageSize"
+                     (ngModelChange)="getcustomerlist()">
+                     <option>1</option>
+                     <option>5</option>
+                     <option>10</option>
+                     <option>20</option>
+                     <option>50</option>
+                     <option>100</option>
+                     <option>200</option>
+                   </select>
+                   <span class="input-group-addon addon-right">Per Page</span>
+                 </div>
+               </div>
+               </form> -->
+         </card>
+      </div>
+   </div>
+   <modal #myModal>
+      <modal-header>
+        <h3>Active/Inactive Customer</h3>
+      </modal-header>
+      <modal-content>
+        <card cardTitle="Active" isCollapse="true">
+          <div class="form-group">
+            <div class="col-md-6">
+              <label class="control-label">Active</label> <span class="text-danger"
+                style="font-size: large;">*</span>
+                <select name="isactive" id="isactive" class="form-control"
+                [(ngModel)]="IsActive"> 
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+                </select>
+            </div> 
+          </div> 
+        </card>
+        <span style="color: red;" *ngIf="error1">{{error1}}
+        </span>
+      </modal-content>
+      <modal-footer>
+        <button class="btn btn-success" style="margin-left: 0px;" (click)="activeinactivecustomer(myModal)">Submit</button>
+        <button class="btn btn-primary" (click)="closeModal(myModal)">close</button>
+      </modal-footer>
+    </modal>
+   <!-- loader.component.html -->
+ <ng4-loading-spinner> </ng4-loading-spinner>

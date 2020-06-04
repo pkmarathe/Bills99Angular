@@ -1,0 +1,70 @@
+<card cardTitle="Manage Currency" isCollapse="true">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-1">Currency</div>
+      <div class="col-md-3"><input type="text" class="form-control" [(ngModel)]="currencyMasterAddDc.Currency"></div>
+
+      <div class="col-md-1">Active</div>
+      <div class="col-md-3">
+        <select name="isactive" id="isactive" class="form-control" [(ngModel)]="currencyMasterAddDc.IsActive">
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button *ngIf="currencyMasterAddDc.CurrencyId == 0" class="btn btn-lg btn-success" (click)="onAddUpdateCurrency()">Add</button>
+        <button *ngIf="currencyMasterAddDc.CurrencyId > 0" class="btn btn-lg btn-success"
+          (click)="onAddUpdateCurrency()">Update</button><button class="btn btn-lg btn-warning"
+          (click)="onCancel()">Cancel</button></div>
+    </div>
+  </div>
+  <div class="col-md-12 btn btn-danger" *ngIf="error">
+    <span class="error">{{error}}
+    </span>
+  </div>
+  <div class="col-md-12 btn btn-success" *ngIf="success">
+    <span class="success">{{success}}
+    </span>
+  </div>
+</card>
+
+
+<!-- <div style="color: green" *ngIf="success != ''" >{{success}}</div>
+<div style="color: red" *ngIf="error != ''" >{{error}}</div> -->
+
+<div class="row">
+  <div class="col-md-12">
+    <card cardTitle="Currency List : {{currencyMasterDc.length}}">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Currency</th>
+            <th>Active</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of currencyMasterDc;let index = index">
+            <!-- | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber} -->
+            <td>{{index+1}}</td>
+            <td>{{item.Currency}}</td>
+            <td><input class="checkbox checkbox-success" type="checkbox" id="color-checkbox3"
+                *ngIf="item.IsActive == true" disabled=true checked>
+              <input class="checkbox checkbox-success" type="checkbox" id="color-checkbox3"
+                *ngIf="item.IsActive == false" disabled=true unchecked>
+              <label class="check-label" for="color-checkbox3"></label></td>
+            <td>
+              <a (click)="onEditCurrency(item.CurrencyId)" class="btn btn-success" title="Edit Currency">
+                <i class="fa fa-pencil"></i>
+              </a>
+              <a (click)="onDeleteCurrency(item.CurrencyId)" class="btn btn-danger" title="Inactive Currency">
+                <i class="fa fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </card>
+  </div>
+</div>
