@@ -45,7 +45,6 @@ export class CustomerBillRecieptComponent implements OnInit {
     this.billRecieptService.SearchBillReciept(this.billRecieptSearchDc)
       .subscribe(
         res => {
-          debugger
           if (res != null) {
             this.billRecieptDc = res;
             this.spinnerService.hide();
@@ -88,7 +87,6 @@ export class CustomerBillRecieptComponent implements OnInit {
 
   onDelete(billreceiptId: number) {
     this.spinnerService.show();
-    debugger;
     this.billRecieptService.DeleteBillRecieptById(billreceiptId)
       .subscribe(
         res => {

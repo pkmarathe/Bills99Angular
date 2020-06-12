@@ -83,7 +83,6 @@ export class CurrencyMasterComponent implements OnInit {
     this.masterService.DeleteCurrencyById(Id)
       .subscribe(
         res => {
-          debugger;
           if (res == true) {
             this.success = 'Currency Inactive Successfully';
             this.getCurrencylist();
