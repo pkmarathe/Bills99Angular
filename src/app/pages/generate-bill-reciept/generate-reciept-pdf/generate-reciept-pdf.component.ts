@@ -60,7 +60,6 @@ export class GenerateRecieptPdfComponent extends RootComponent implements OnInit
   //Get Directions
   dir = undefined;
   public getDirection(origin: string, destination: string) {
-    debugger;
     let geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': origin }, (results, status) => {
       if (status == google.maps.GeocoderStatus.OK) {
@@ -74,7 +73,6 @@ export class GenerateRecieptPdfComponent extends RootComponent implements OnInit
         this.lngdstn = results[0].geometry.location.lng();
       }
     });
-    debugger;
     this.dir = {
       origin: { lat: this.lat, lng: this.lng },
       destination: { lat: this.latdstn, lng: this.lngdstn }
@@ -85,7 +83,6 @@ export class GenerateRecieptPdfComponent extends RootComponent implements OnInit
     let geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': address }, (results, status) => {
       if (status == google.maps.GeocoderStatus.OK) {
-        debugger;
         this.lat = results[0].geometry.location.lat();
         this.lng = results[0].geometry.location.lng();
       }
@@ -135,7 +132,6 @@ export class GenerateRecieptPdfComponent extends RootComponent implements OnInit
     this.categoryService.GetCategoryRecieptById(this.CategoryRecieptId.toString())
       .subscribe(
         res => {
-          debugger;
           if (res != null) {
             this.categoryRecieptDc = res;
             //this.BillRecieptDynamicHtml = res.BillRecieptDynamicHtml;
@@ -156,7 +152,6 @@ export class GenerateRecieptPdfComponent extends RootComponent implements OnInit
     this.billRecieptService.GetBillRecieptById(brid)
       .subscribe(
         res => {
-          debugger;
           if (res != null) {
             this.billRecieptAddDc = res;
             this.BillRecieptDynamicHtml = res.BillRecieptDynamicHtml;
@@ -220,7 +215,6 @@ export class GenerateRecieptPdfComponent extends RootComponent implements OnInit
   }
 
   onAddTax() {
-    debugger;
     if (this.TaxId != undefined && this.TaxInPercentage != undefined) {
       if (this.BillRecieptTaxInfoDc != null && this.BillRecieptTaxInfoDc.length > 0) {
         let found = this.BillRecieptTaxInfoDc.filter(s => s.TaxId == this.TaxId);
@@ -261,7 +255,6 @@ export class GenerateRecieptPdfComponent extends RootComponent implements OnInit
   }
 
   onAddItem() {
-    debugger;
     if (this.ItemName != undefined && this.Quantity != undefined && this.Price != undefined) {
       if (this.BillRecieptItemInfoDc != null && this.BillRecieptItemInfoDc.length > 0) {
         let found = this.BillRecieptItemInfoDc.filter(s => this.lowerCasePipe.transform(s.ItemName) == this.lowerCasePipe.transform(this.ItemName));
@@ -332,7 +325,6 @@ export class GenerateRecieptPdfComponent extends RootComponent implements OnInit
   }
 
   onGenerateReciept() {
-    debugger;
     this.spinnerService.show();
     if (this.billRecieptAddDc.CurrencyId != undefined && this.billRecieptAddDc.Business != undefined && this.billRecieptAddDc.FontStyle != "" && this.billRecieptAddDc.RecieptDate != undefined) {
       this.billRecieptAddDc.BillRecieptTaxInfoDc = this.BillRecieptTaxInfoDc;
@@ -1230,7 +1222,6 @@ export class GenerateRecieptPdfComponent extends RootComponent implements OnInit
   //   let geocoder = new google.maps.Geocoder();
   //   let strSearch = this.billRecieptAddDc.Address;
   //   geocoder.geocode({ 'address': strSearch }, (results, status) => { 
-  //     debugger;
   //     if (status == google.maps.GeocoderStatus.OK) {
   //       let lat = results[0].geometry.location.lat();
   //       let lng = results[0].geometry.location.lng();

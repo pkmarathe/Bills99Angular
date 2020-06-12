@@ -35,7 +35,6 @@ export class RegistrationComponent extends RootComponent implements OnInit {
   //Publishablekey = "pk_live_V6B0hXJyJzQ82puhEYu4ov9U00M7oGzJYm" 
   handler: any = null;
   ngOnInit() {
-    debugger;
     //this.loadStripe();
     //this.alertMessage({ type: 'success', title: 'Required fields !!', value: 'Please fill required fields.' }); 
     this.registrationDc.UserId = 0;
@@ -56,7 +55,6 @@ export class RegistrationComponent extends RootComponent implements OnInit {
       .subscribe(
         res => {
           if (res == null) {
-            debugger;
             if (this.registrationDc.SubscriptionPlanId == 0 || this.registrationDc.SubscriptionPlanId == undefined) {
               this.error = 'Please select subscription plan';
               this.spinnerService.hide();
@@ -123,15 +121,12 @@ export class RegistrationComponent extends RootComponent implements OnInit {
                   this.checkoutamount = this.subscriptionPlanDc.Amount;
                 }
                 else {
-                  debugger;
                   //this.GetCurrencyPerCharge(this.registrationDc.Currency);
-                  debugger;
                   //var priceperdoller = this.PaymentCurrencyDc[0].PricePerDoller;
                   amount = Number(this.subscriptionPlanDc.Amount) * 75;
                   this.checkoutamount = amount.toString();
                   amount = amount * 100;
                 }
-                debugger;
                 this.PaymentCheckoutDc.Amount = amount;
                 this.registrationDc.PaymentAmount = this.checkoutamount;
                 this.PaymentCheckoutDc.Currency = this.registrationDc.Currency;
@@ -173,7 +168,6 @@ export class RegistrationComponent extends RootComponent implements OnInit {
   }
 
   // pay() {
-  //   debugger;
   //   if (this.registrationDc.SubscriptionPlanId == 0 || this.registrationDc.SubscriptionPlanId == undefined) {
   //     this.error = 'Please select subscription plan';
   //     this.spinnerService.hide();
@@ -250,7 +244,6 @@ export class RegistrationComponent extends RootComponent implements OnInit {
   //         // Get the token ID to your server-side code for use.
   //         console.log(JSON.stringify(token))
   //         //alert('Token Created!!');
-  //         debugger;
   //         that.onSubmit(token.id);
   //       }
   //     });
@@ -289,10 +282,8 @@ export class RegistrationComponent extends RootComponent implements OnInit {
   // }
 
   GetCurrencyPerCharge(pN: string) {
-    debugger;
     this.subPlanService.GetPaymentCurrency(pN).subscribe(
       res => {
-        debugger;
         this.PaymentCurrencyDc = res;
       },
       error => { }
@@ -314,7 +305,6 @@ export class RegistrationComponent extends RootComponent implements OnInit {
 
   onSubmit(tokenid) {
     this.spinnerService.show();
-    debugger;
     if (this.registrationDc.UserId == 0 && this.registrationDc.EmailId != "" && this.registrationDc.EmailId != undefined && this.registrationDc.Password != "" && this.registrationDc.Password != undefined && this.registrationDc.Name != "" && this.registrationDc.Name != undefined) {
       //let formData: FormData = new FormData();
       //formData.append('file', this.myFileInput.nativeElement.files[0]);
@@ -383,7 +373,6 @@ export class RegistrationComponent extends RootComponent implements OnInit {
         this.regService.AddRegistration(this.registrationDc)
           .subscribe(
             res => {
-              debugger
               if (res == "succeeded") {
                 swal({ title: 'Done!', text: 'Payment successfully completed.', timer: 2000, onOpen: () => { swal.showLoading(); } });
                 this.error = '';

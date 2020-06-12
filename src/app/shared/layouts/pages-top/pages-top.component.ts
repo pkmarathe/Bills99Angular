@@ -41,7 +41,6 @@ export class PagesTopComponent implements AfterViewInit {
 
 
   ngAfterViewInit(): void {
-    debugger;
     this.sidebarToggle = window.innerWidth >= 970;
     
   }

@@ -49,7 +49,6 @@ export class SubscriptionPlanPaymentListComponent implements OnInit {
       this.onGetlocalstorage();
       this.onSubmit(this.checkoutsessionid);
     }
-    debugger;
     this.GetSubPlanDropdown();
     this.GetRegistrationDropdown();
     this.GetRegistrationById();
@@ -59,7 +58,6 @@ export class SubscriptionPlanPaymentListComponent implements OnInit {
 
 
   // pay(modal) {
-  //   debugger;
   //   if (this.subscriptionPlanPaymentAddDc.SubscriptionPlanId == 0 || this.subscriptionPlanPaymentAddDc.SubscriptionPlanId == undefined) {
   //     this.error1 = 'Please select subscription plan';
   //     this.spinnerService.hide();
@@ -120,7 +118,6 @@ export class SubscriptionPlanPaymentListComponent implements OnInit {
   //         // Get the token ID to your server-side code for use.
   //         console.log(JSON.stringify(token))
   //         //alert('Token Created!!');
-  //         debugger;
   //         that.onSubmit(modal, token.id);
   //       }
   //     });
@@ -184,10 +181,8 @@ export class SubscriptionPlanPaymentListComponent implements OnInit {
   }
 
   GetRegistrationById() {
-    debugger;
     this.regService.GetRegistrationById(this.lsService.getloginId().toString()).subscribe(
       res => {
-        debugger;
         this.RegistrationTableDc = res;
       },
       error => { }
@@ -195,7 +190,6 @@ export class SubscriptionPlanPaymentListComponent implements OnInit {
   }
 
   GetRegistrationDropdown() {
-    debugger;
     this.regService.GetRegistrationDropdown("customer").subscribe(
       res => {
         this.registrationDropdownDc = res;
@@ -205,10 +199,8 @@ export class SubscriptionPlanPaymentListComponent implements OnInit {
   }
 
   GetCurrencyPerCharge(pN: string) {
-    debugger;
     this.subPlanService.GetPaymentCurrency(pN).subscribe(
       res => {
-        debugger;
         this.PaymentCurrencyDc = res;
       },
       error => { }
@@ -269,7 +261,6 @@ export class SubscriptionPlanPaymentListComponent implements OnInit {
         this.subPlanService.GetSessionId(this.PaymentCheckoutDc)
           .subscribe(
             res => {
-              debugger;
               if (res.Result == true) {
                 this.onSavelocalstorage();
                 stripe.redirectToCheckout({
@@ -294,7 +285,6 @@ export class SubscriptionPlanPaymentListComponent implements OnInit {
   }
 
   onSubmit(tokenid) {
-    debugger;
     this.spinnerService.show();
     this.subscriptionPlanPaymentAddDc.UserId = this.lsService.getloginId();
     this.subscriptionPlanPaymentAddDc.TokenId = tokenid;
@@ -343,7 +333,6 @@ export class SubscriptionPlanPaymentListComponent implements OnInit {
         this.subPlanService.AddUpAddUpdateSubscriptionPlanPaydateBillReciept(this.subscriptionPlanPaymentAddDc)
           .subscribe(
             res => {
-              debugger;
               if (res == 'succeeded') {
                 this.success = "Payment successfully completed";
                 this.error1 = '';

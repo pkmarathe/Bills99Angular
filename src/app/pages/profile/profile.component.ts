@@ -30,7 +30,6 @@ export class ProfileComponent implements OnInit {
         res => {
           if (res != null) {
             this.registrationDc = res;
-            debugger;
             if (this.registrationDc.ProfileImage != null && this.registrationDc.ProfileImage != "")
               this.profileimage = environment.ImageBaseUrl + this.registrationDc.ProfileImage;
             else

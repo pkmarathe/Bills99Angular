@@ -22,7 +22,6 @@ export class StripepaymentComponent implements OnInit {
   }
 
   onpayment() {
-    debugger;
     var stripe = Stripe('pk_test_HFSzYRbru21PsWpmO7hWROLs009prnonfu');
     //var stripe = Stripe('pk_live_V6B0hXJyJzQ82puhEYu4ov9U00M7oGzJYm');
     this.PaymentCheckoutDc.Amount = 100;
@@ -30,7 +29,6 @@ export class StripepaymentComponent implements OnInit {
     this.subPlanService.GetSessionId(this.PaymentCheckoutDc)
       .subscribe(
         res => {
-          debugger;
           // if (res.Result == true) {
           //   stripe.redirectToCheckout({
           //     sessionId: res

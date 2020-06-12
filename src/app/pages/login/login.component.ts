@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
         .subscribe(
           res => {
             if (res != null) {
-              debugger;
               this.userRegistrationDc = res;
               this.lsService.setLoginInfo(this.userRegistrationDc.UserId, this.userRegistrationDc.Name, this.userRegistrationDc.ProfileImage, this.userRegistrationDc.Role, this.userRegistrationDc.EmailId);
               localStorage.setItem("issubscription", this.userRegistrationDc.IsSubscription.toString());

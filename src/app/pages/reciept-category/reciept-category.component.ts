@@ -84,7 +84,6 @@ export class RecieptCategoryComponent implements OnInit {
   }
 
   onViewReciept(Id: number): void {
-    debugger;
     this.router.navigate(['/pages/reciept-category/category-reciept-sample'], { queryParams: { id: Id } });
   }
 
@@ -92,7 +91,6 @@ export class RecieptCategoryComponent implements OnInit {
     this.masterService.DeleteCategoryById(Id)
       .subscribe(
         res => {
-          debugger;
           if (res == true) {
             this.success = 'Deleted Successfully';
             this.getCategorylist();

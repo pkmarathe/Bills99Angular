@@ -101,7 +101,6 @@ export abstract class BaseService {
 
 
     private setRequestOptions(httpOptions: any): any {
-        debugger;
         // if (httpOptions == null) {
             // If reqeust option is null
             if (httpOptions == null) {

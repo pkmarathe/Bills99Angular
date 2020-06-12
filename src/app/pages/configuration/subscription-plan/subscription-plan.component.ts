@@ -66,7 +66,6 @@ export class SubscriptionPlanComponent implements OnInit {
       .subscribe(
         res => {
           let countryTableDc: SubscriptionPlanDc = res;
-          debugger
           this.subscriptionPlanAddDc.SubscriptionPlanId = countryTableDc.SubscriptionPlanId;
           this.subscriptionPlanAddDc.SubscriptionPlan = countryTableDc.SubscriptionPlan;
           this.subscriptionPlanAddDc.SubscriptionPlanDesc = countryTableDc.SubscriptionPlanDesc;
@@ -92,7 +91,6 @@ export class SubscriptionPlanComponent implements OnInit {
     this.masterService.DeleteSubscriptionPlanById(Id)
       .subscribe(
         res => {
-          debugger;
           if (res == true) {
             this.success = 'Subscription Plan Deleted Successfully';
             this.getsubscriptionplanlist();

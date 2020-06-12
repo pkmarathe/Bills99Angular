@@ -40,12 +40,10 @@ export class CustomerListComponent implements OnInit {
   }
 
   activeinactivecustomer(modal) {
-    debugger;
     this.spinnerService.show();
     this.regService.DeleteRegistrationById(this.UserId, this.IsActive)
       .subscribe(
         res => {
-          debugger;
           if (res == true) {
             if (this.IsActive == "true")
               this.success = 'Customer active successfully'
@@ -78,18 +76,15 @@ export class CustomerListComponent implements OnInit {
     this.FileExportDc.FileName = "Customer_List.xls";
     htmltext += "<table>";
     htmltext += "<tr><th>#</th><th>Name</th><th>Designation</th><th>Mobile No</th><th>EmailId</th><th>Address</th><th>Active</th></tr>";
-    debugger;
     for (let index = 0; index < this.registrationDc.length; index++) {
       let prod = this.registrationDc[index];
       htmltext += "<tr><td>" + (Number(index) + 1) + "</td><td>" + prod.Name + "</td><td>" + prod.Designation + "</td><td>" + prod.MobileNo + "</td><td>" + prod.EmailId + "</td><td>" + prod.Address + "</td><td>" + prod.IsActive + "</td></tr>";
     }
     htmltext += "</table>";
-    debugger;
     this.FileExportDc.HtmlText = htmltext;
     this.regService.ExportToExcel(this.FileExportDc)
       .subscribe(
         res => {
-          debugger;
           if (res != null && res != '') {
             window.open(environment.ImageBaseUrl + "ExportSheet/" + this.FileExportDc.FileName);
           }

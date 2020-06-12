@@ -22,7 +22,6 @@ export class RightConfigComponent implements OnInit {
   constructor(private _globalService: GlobalService, private router: Router, private lsservice: LocalStorageService, private regService: RegistrationService) { }
 
   ngOnInit() {
-    debugger; 
     if(this.lsservice.isLoggedin() == null || this.lsservice.isLoggedin() == false || this.lsservice.isLoggedin() == undefined)
     {
       this.router.navigate(['/login']);
@@ -43,7 +42,6 @@ export class RightConfigComponent implements OnInit {
   }
 
   onchange(modal){
-    debugger;
     if(this.NewPassword != this.ConfirmPassword)
     {
       this.error = 'New Password & Confirm Password not matched';
@@ -54,7 +52,6 @@ export class RightConfigComponent implements OnInit {
       this.regService.ChangePassword(this.lsservice.getUserName(),this.OldPassword,this.NewPassword)
         .subscribe(
           res => { 
-            debugger; 
             if (Number(res) > 0) { 
               this.success = 'Password changed Successfully';
               this.error = '';
@@ -75,7 +72,6 @@ export class RightConfigComponent implements OnInit {
   }
 
   onLoggedout() {
-    debugger;
     localStorage.removeItem('isLoggedin');
     this.router.navigate(['/login']);
   }

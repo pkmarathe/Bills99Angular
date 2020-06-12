@@ -83,7 +83,6 @@ export class TaxMasterComponent implements OnInit {
     this.masterService.DeleteTaxById(Id)
       .subscribe(
         res => {
-          debugger;
           if (res == true) {
             this.success = 'Deleted Successfully';
             this.gettaxlist();

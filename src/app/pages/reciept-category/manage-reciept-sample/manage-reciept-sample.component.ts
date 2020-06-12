@@ -28,7 +28,6 @@ export class ManageRecieptSampleComponent implements OnInit {
     this.masterService.GetCategoryReciept(this.CategoryId)
       .subscribe(
         res => {
-          debugger;
           if (res != null) {
             this.categoryRecieptDc = res;
           }
@@ -37,12 +36,11 @@ export class ManageRecieptSampleComponent implements OnInit {
   } 
 
   onAddUpdateCategoryReciept() {
-    debugger
     if (this.categoryRecieptAddDc.BillRecieptDynamicHtml != "" && this.categoryRecieptAddDc.BillRecieptDynamicHtml != undefined && this.categoryRecieptAddDc.BillRecieptName != "" && this.categoryRecieptAddDc.BillRecieptName != undefined) {
       this.masterService.AddUpdateCategoryReciept(this.categoryRecieptAddDc)
         .subscribe(
           res => {
-            debugger;
+            
             if (res > 0) {
               if (this.categoryRecieptAddDc.CategoryId == 0) {
                 this.success = 'Category Reciept Added Successfully';
@@ -71,7 +69,7 @@ export class ManageRecieptSampleComponent implements OnInit {
     this.masterService.GetCategoryRecieptById(CategoryRecieptId)
       .subscribe(
         res => {
-          debugger;
+          
           let countryTableDc: CategoryRecieptDc = res;
           this.categoryRecieptAddDc.CategoryId = countryTableDc.CategoryId;
           this.categoryRecieptAddDc.CategoryRecieptId = countryTableDc.CategoryRecieptId;
@@ -94,7 +92,7 @@ export class ManageRecieptSampleComponent implements OnInit {
     this.masterService.DeleteCategoryRecieptById(Id)
       .subscribe(
         res => {
-          debugger;
+          
           if (res == true) {
             this.success = 'Deleted Successfully';
             this.getCategoryRecieptlist();

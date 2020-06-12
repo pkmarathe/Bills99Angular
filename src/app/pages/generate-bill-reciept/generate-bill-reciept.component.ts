@@ -35,7 +35,6 @@ export class GenerateBillRecieptComponent implements OnInit {
     this.masterService.GetCategoryReciept(this.CategoryId)
       .subscribe(
         res => {
-          debugger;
           if (res != null) {
             this.categoryRecieptDc = res; 
           }
@@ -57,7 +56,6 @@ export class GenerateBillRecieptComponent implements OnInit {
   }
 
   onGenerateReciept(CategoryRecieptId: string) {
-    debugger;
     if(localStorage.getItem("issubscription").toString() == "true" || this.lsservice.getloginRole() == "admin")
     this.router.navigate(['/pages/generate-bill-reciept/generate-reciept-pdf'], { queryParams: { id: CategoryRecieptId } });
     else
