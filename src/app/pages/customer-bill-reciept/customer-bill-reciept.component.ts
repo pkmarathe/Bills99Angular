@@ -23,7 +23,7 @@ export class CustomerBillRecieptComponent implements OnInit {
   public billRecieptSearchDc: BillRecieptSearchDc = new BillRecieptSearchDc();
   error: any;
   success: any;
-  constructor(private spinnerService: Ng4LoadingSpinnerService, private router: Router, private lsService: LocalStorageService, private datePipe: DatePipe, private categoryService: CategoryService, private billRecieptService: BillRecieptService, private registrationService: RegistrationService) { }
+  constructor(private spinnerService: Ng4LoadingSpinnerService, private router: Router, public lsService: LocalStorageService, private datePipe: DatePipe, private categoryService: CategoryService, private billRecieptService: BillRecieptService, private registrationService: RegistrationService) { }
 
   ngOnInit() {
     this.billRecieptSearchDc.RecieptFromDate = this.datePipe.transform(new Date(), 'MM/dd/yyyy');

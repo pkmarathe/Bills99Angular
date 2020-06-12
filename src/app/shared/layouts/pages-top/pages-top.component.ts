@@ -17,7 +17,7 @@ export class PagesTopComponent implements AfterViewInit {
   sidebarToggle: boolean = true;
   tip = {ring: true, email: true};
 
-  constructor(private _globalService: GlobalService, private router: Router,private lsservice: LocalStorageService) {
+  constructor(private _globalService: GlobalService, private router: Router, public lsservice: LocalStorageService) {
     
   }
 

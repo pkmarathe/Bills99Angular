@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-2">Reciept Name</div>
       <div class="col-md-4">
-        <input type="text" class="form-control" [(ngModel)]="categoryRecieptAddDc.BillRecieptSampleHtml">
+        <input type="text" class="form-control" [(ngModel)]="categoryRecieptAddDc.BillRecieptDynamicHtml">
       </div>
       <div class="col-md-2">Active</div>
       <div class="col-md-4">
@@ -24,9 +24,12 @@
         <button class="btn btn-warning" (click)="openModal(myModal)">Tag Replace</button></div>
       <div class="col-md-10">
         <ckeditor [(ngModel)]="categoryRecieptAddDc.BillRecieptDynamicHtml">
-          <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)" [icon]="'save.png'"
+          <!-- <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)" [icon]="'save.png'"
             [label]="'Save Document'" [toolbar]="'clipboard,1'">
-          </ckbutton>
+          </ckbutton> -->
+          <ckbutton [name]="'saveButton'" [command]="'saveCmd'"  [icon]="'save.png'"
+          [label]="'Save Document'" [toolbar]="'clipboard,1'">
+        </ckbutton>
         </ckeditor>
         <!-- <input type="text" class="form-control" [(ngModel)]="categoryRecieptAddDc.BillRecieptDynamicHtml"> -->
       </div>

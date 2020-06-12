@@ -16,7 +16,7 @@ export class IndexComponent implements OnInit {
   filter: string;
   //public AnimationBarOption;
 
-  constructor(private _chartsService: ChartsService, private regService: RegistrationService, private lsService: LocalStorageService) 
+  constructor(private _chartsService: ChartsService, private regService: RegistrationService, public lsService: LocalStorageService) 
   {  }
 
   ngOnInit() {

@@ -72,7 +72,7 @@ export class CustomerListComponent implements OnInit {
     modal.close();
   }
 
-  export(FileName: string, HtmlText: string) {
+  export() {
     let htmltext: string = "";
     this.spinnerService.show();
     this.FileExportDc.FileName = "Customer_List.xls";

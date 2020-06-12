@@ -137,8 +137,8 @@ export class RegistrationComponent extends RootComponent implements OnInit {
                 this.PaymentCheckoutDc.Currency = this.registrationDc.Currency;
                 this.PaymentCheckoutDc.SubscriptionPlanId = this.subscriptionPlanDc.SubscriptionPlanId;
                 this.PaymentCheckoutDc.CustomerEmail = this.registrationDc.EmailId;
-                //this.PaymentCheckoutDc.ReturnUrl = "http://localhost:4500/registration?id=" + this.registrationDc.SubscriptionPlanId + "&";
-                //this.PaymentCheckoutDc.CancelUrl = "http://localhost:4500/registration?id=" + this.registrationDc.SubscriptionPlanId;
+                //this.PaymentCheckoutDc.ReturnUrl = "https://localhost:4500/registration?id=" + this.registrationDc.SubscriptionPlanId + "&";
+                //this.PaymentCheckoutDc.CancelUrl = "https://localhost:4500/registration?id=" + this.registrationDc.SubscriptionPlanId;
                 this.PaymentCheckoutDc.ReturnUrl = "https://app.bills99.com/registration?id=" + this.registrationDc.SubscriptionPlanId + "&";
                 this.PaymentCheckoutDc.CancelUrl = "https://app.bills99.com/registration?id=" + this.registrationDc.SubscriptionPlanId;
                 this.subPlanService.GetSessionId(this.PaymentCheckoutDc)

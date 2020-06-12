@@ -31,7 +31,7 @@ export class SubscriptionPlanPaymentListComponent implements OnInit {
   error: any;
   error1: any;
   success: any;
-  constructor(private router: Router, private route: ActivatedRoute, private spinnerService: Ng4LoadingSpinnerService, private lsService: LocalStorageService, private regService: RegistrationService, private subPlanService: SubscriptionPlanPayService, private masterService: MasterService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private spinnerService: Ng4LoadingSpinnerService, public lsService: LocalStorageService, private regService: RegistrationService, private subPlanService: SubscriptionPlanPayService, private masterService: MasterService) { }
   //Publishablekey = "pk_test_HFSzYRbru21PsWpmO7hWROLs009prnonfu"
   //Publishablekey = "pk_live_V6B0hXJyJzQ82puhEYu4ov9U00M7oGzJYm" 
   handler: any = null;
@@ -262,8 +262,8 @@ export class SubscriptionPlanPaymentListComponent implements OnInit {
         this.PaymentCheckoutDc.Currency = this.subscriptionPlanPaymentAddDc.Currency;
         this.PaymentCheckoutDc.SubscriptionPlanId = this.subscriptionPlanPaymentAddDc.SubscriptionPlanId;
         this.PaymentCheckoutDc.CustomerEmail = this.RegistrationTableDc.EmailId;
-        // this.PaymentCheckoutDc.ReturnUrl = "http://localhost:4500/pages/subscription-plan-payment?";
-        // this.PaymentCheckoutDc.CancelUrl = "http://localhost:4500/pages/subscription-plan-payment";
+        // this.PaymentCheckoutDc.ReturnUrl = "https://localhost:4500/pages/subscription-plan-payment?";
+        // this.PaymentCheckoutDc.CancelUrl = "https://localhost:4500/pages/subscription-plan-payment";
         this.PaymentCheckoutDc.ReturnUrl = "https://app.bills99.com/pages/subscription-plan-payment?";
         this.PaymentCheckoutDc.CancelUrl = "https://app.bills99.com/pages/subscription-plan-payment";
         this.subPlanService.GetSessionId(this.PaymentCheckoutDc)
