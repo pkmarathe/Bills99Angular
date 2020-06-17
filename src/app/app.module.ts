@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';  
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';   
 import { AgmCoreModule } from '@agm/core';
-import { AgmDirectionModule} from 'agm-direction'; // agm-direction
+import { AgmDirectionModule} from 'agm-direction';
 @NgModule({
   imports: [
     BrowserModule,
